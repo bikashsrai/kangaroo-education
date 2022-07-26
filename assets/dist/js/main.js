@@ -155,3 +155,9 @@
     return false;
   });
 })();
+
+// Jquery for menu header dropdown added by bikash
+
+// jQuery("li.dropdown a").append('<i class="fas fa-chevron-down"></i>');
+jQuery('<i class="fas fa-chevron-down"></i>').insertAfter("li.dropdown");
+//this is jQuery for the heading menu

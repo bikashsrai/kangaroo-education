@@ -17,9 +17,8 @@
         <meta charset="<?php bloginfo( 'charset' ); ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- <link rel="profile" href="https://gmpg.org/xfn/11"> -->
-        <title>Kangaroo Education</title>
         <?php
-         wp_enqueue_script("jquery");
+        wp_enqueue_script("jquery");
         wp_head(); ?>
     </head>
 
@@ -59,57 +58,6 @@
 
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="services.html"><span>Study Abroad</span>
-                                    <i class="fas fa-chevron-down"></i></a>
-                                <ul>
-                                    <li><a href="studyinaustralia.html">
-                                            Study in Australia</a></li>
-                                    <li><a href="uk.html">
-                                            Study in UK </a></li>
-                                    <li><a href="canada.html">
-                                            Study in Canada</a></li>
-                                    <li><a href="newzealand.html">
-                                            Study in NewZealand</a></li>
-                                    <li><a href="usa.html">
-                                            USA</a></li>
-
-                                </ul>
-                            </li>
-                            <li class="dropdown"><a href="#"><span>Test Preparation</span>
-                                    <i class="fas fa-chevron-down"></i></a>
-                                <ul>
-                                    <li><a href="ielts.html"><span>IELTS Preparation Classes</span></a> </li>
-                                    <li><a href="pte.html"><span>PTE Preparation Classes</span></a> </li>
-                                    <li><a href="toefl.html"><span>TOEFL Preparation Classes</span></a> </li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown"><a href="#"><span>Resourses</span>
-                                    <i class="fas fa-chevron-down"></i></a>
-                                <ul>
-                                    <li><a href="#"><span>Study Abroad</span></a> </li>
-                                    <li><a href="#"><span>Sample Documents</span></a> </li>
-                                    <li><a href="#"><span>Statement of porpose</span></a> </li>
-                                    <li><a href="#"><span>Interview Preparation Guidelines</span></a> </li>
-
-
-                                </ul>
-                            </li>
-                            <li><a class="nav-link scrollto" href="institution.html">Institution</a></li>
-                            <li><a class="nav-link scrollto" href="blog.html">Blog</a></li>
-
-                            <li class="dropdown"><a href="#"><span>Media</span> <i class="fas fa-chevron-down"></i></a>
-                                <ul>
-
-                                    <li><a href="photo.html">
-                                            Photo Gallery</a></li>
-                                    <li><a href="video.html">
-                                            Video Gallery </a></li>
-
-                                </ul>
-                            </li>
-
-
                         </ul> -->
 
                         <?php 
@@ -119,15 +67,25 @@
                             'container'=>'',
                             'menu_class'=>'',
                              'link_before'          => '',
-                             'link_after'           => '<i class="fas fa-chevron-down"></i>',
+                             'link_after'           => ''
+                           
                             
-                            
-                        ))
-                        ;?>
-                        <a class="btn-get-started bg-transparent
-                                 text-theme rounded-3  btn-sm contactbtn fw-bold text-theme enqbtn"
-                            href="contactus.html">Contact Us <i class="flaticon-long-right-arrow"></i></a>
-                        <i class="fa fa-list text-theme mobile-nav-toggle"></i>
+                        ));
+                        ?>
+                        <?php
+                          $link_contact=get_field('link_contact_header','option');
+			              if ( $link_contact ):
+						  $link_url = $link_contact['url'];
+						  $link_title = $link_contact['title'];
+						  $link_target = $link_contact['target'] ? $link_contact['target'] : '_self';
+						?>
+                        <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"
+                            class="btn-get-started bg-transparent
+                                 text-theme rounded-3  btn-sm contactbtn fw-bold text-theme enqbtn"><?php echo esc_html( $link_title ); ?><i
+                                class="flaticon-long-right-arrow"></i></a> <i
+                            class="fa fa-list text-theme mobile-nav-toggle"></i>
+                        <?php endif;?>
+
                     </nav>
                     <!-- .navbar -->
 

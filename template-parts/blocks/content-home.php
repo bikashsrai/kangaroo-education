@@ -11,8 +11,6 @@ get_header();
 
 
 
-
-
 <!-- main bosy part start -->
 
 <!-- slider section starts -->
@@ -22,165 +20,58 @@ get_header();
     <div id="rev_slider_1" class="rev_slider rev_slider-1">
 
         <!-- BEGIN SLIDES LIST -->
-        <ul>
-            <li data-index="rs-280" data-transition="zoomout" data-slotamount="default" data-easein="Power4.easeInOut"
-                data-easeout="Power4.easeInOut" data-masterspeed="2000" data-rotate="0" data-saveperformance="off"
-                data-title="01" data-description="">
-                <div class="slider-overlay"></div>
-                <img src="<?php echo get_template_directory_uri().'/assets/img/a1.jpg';?>" alt="image"
-                    class="rev-slidebg" data-bgparallax="3" data-bgposition="center center" data-duration="20000"
-                    data-ease="Linear.easeNone" data-kenburns="on" data-no-retina="" data-offsetend="0 0"
-                    data-offsetstart="0 0" data-rotateend="0" data-rotatestart="0" data-scaleend="100"
-                    data-scalestart="140">
-                <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
-                <!-- BEGIN BASIC TEXT LAYER -->
-                <!-- LAYER NR. 1 -->
-                <div class="tp-caption NotGeneric-Title   tp-resizeme" id="slide-3045-layer-1"
-                    data-x="['left','left','center','middle']" data-hoffset="['70','70','70','70']"
-                    data-y="['middle','middle','middle','middle']" data-voffset="['-135','0','0','0']"
-                    data-fontsize="['56','56','56','56']" data-width="none" data-height="none" data-whitespace="nowrap"
-                    data-type="text" data-responsive_offset="on"
-                    data-frames='[{"from":"x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1000,"split":"chars","splitdelay":0.05,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
-                    data-textAlign="['left','left','left','left']" data-paddingtop="[10,10,10,10]"
-                    data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]"
-                    style="z-index: 2; white-space: nowrap;font-family: 'Poppins', sans-serif; text-transform: none;">
-                    Study in
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="<?php echo get_template_directory_uri().'/assets/img/aus.jpg';?>" class="d-block w-100"
+                        alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Study In Australia</h5>
+                        <p>Study Abroad</p>
+                    </div>
                 </div>
-
-                <!-- LAYER NR. 2 -->
-                <div class="tp-caption NotGeneric-Title   tp-resizeme" id="slide-3045-layer-2"
-                    data-x="['left','left','left','left']" data-hoffset="['70','70','70','70']"
-                    data-y="['middle','middle','middle','middle']" data-voffset="['-70','0','0','0']"
-                    data-fontsize="['75','75','75','75']" data-lineheight="['90','90','90','90']" data-width="none"
-                    data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on"
-                    data-frames='[{"from":"x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1000,"split":"chars","splitdelay":0.05,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
-                    data-textAlign="['left','left','left','left']" data-paddingtop="[10,10,10,10]"
-                    data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]"
-                    style="z-index: 3; white-space: nowrap;font-family: 'Poppins', sans-serif; text-transform: none;">
-                    Australia
+                <div class="carousel-item">
+                    <img src="<?php echo get_template_directory_uri().'/assets/img/a2.jpg';?>" class="d-block w-100"
+                        alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Study In Australia</h5>
+                        <p>Study Abroad</p>
+                    </div>
                 </div>
-
-                <!-- LAYER NR. 3 -->
-                <div class="tp-caption   tp-resizeme" id="slide-3045-layer-3" data-x="['left','left','middle','middle']"
-                    data-hoffset="['70','70','70','70']" data-y="['middle','middle','middle','middle']"
-                    data-voffset="['-10','0','0','0']" data-fontsize="['18','18','18','18']"
-                    data-lineheight="['68','68','68','50']" data-width="none" data-height="none"
-                    data-whitespace="nowrap" data-type="text" data-responsive_offset="on"
-                    data-frames='[{"from":"x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1000,"split":"chars","splitdelay":0.05,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
-                    data-textAlign="['left','left','left','center']" data-paddingtop="[10,10,10,10]"
-                    data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]"
-                    style="z-index: 5; white-space: nowrap;font-family: 'Poppins', sans-serif; text-transform: none; color: #ffffff;">
-                    Study Abroad
+                <div class="carousel-item">
+                    <img src="<?php echo get_template_directory_uri().'/assets/img/a1.jpg';?>" class="d-block w-100"
+                        alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Study In Australia</h5>
+                        <p>Study Abroad</p>
+                    </div>
                 </div>
-
-
-                <!-- LAYER NR. 5 -->
-                <div class="tp-caption Newspaper-Button rev-btn " id="slide-1687-layer-5"
-                    data-x="['left','left','left','left']" data-hoffset="['70','70','70','70']"
-                    data-y="['middle','middle','middle','middle']" data-voffset="['100','0','0','0']" data-width="none"
-                    data-height="none" data-whitespace="nowrap" data-fontsize="['16','16','16','16']" data-type="button"
-                    data-responsive_offset="on" data-responsive="on"
-                    data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(0, 0, 0, 1.00);bg:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
-                    data-textAlign="['left','left','left','left']" data-paddingtop="[15,15,15,15]"
-                    data-paddingright="[30,30,30,30]" data-paddingbottom="[15,15,15,15]"
-                    data-paddingleft="[30,30,30,30]"
-                    style="z-index: 8; font-weight: 600; white-space: nowrap;font-family: 'Poppins', sans-serif; outline:none;box-shadow:none;border:none; background:#ffffff; color:#3f77fa; cursor:pointer;letter-spacing: 0; border-radius: 5px;">
-                    <span>Find More</span>
-                </div>
-            </li>
-            <li data-index="rs-20" data-transition="zoomin" data-slotamount="7" data-easein="Power4.easeInOut"
-                data-easeout="Power4.easeInOut" data-masterspeed="2000" data-thumb="images/home/slide-10.jpg"
-                data-rotate="0" data-saveperformance="off" data-title="03" data-description="">
-                <div class="slider-overlay"></div>
-                <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
-                <img src="<?php echo get_template_directory_uri().'/assets/img/a2.jpg';?>" alt=""
-                    data-bgposition="center center" data-kenburns="on" data-duration="10000" data-ease="Linear.easeNone"
-                    data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0"
-                    data-offsetstart="0 -500" data-offsetend="0 500" data-bgparallax="10" class="rev-slidebg"
-                    data-no-retina>
-                <!-- BEGIN BASIC TEXT LAYER -->
-                <!-- LAYER NR. 1 -->
-                <div class="tp-caption NotGeneric-Title   tp-resizeme" id="slide-3045-layer-5"
-                    data-x="['left','left','left','left']" data-hoffset="['70','70','70','70']"
-                    data-y="['middle','middle','middle','middle']" data-voffset="['-135','0','0','0']"
-                    data-fontsize="['56','56','56','56']" data-width="none" data-height="none" data-whitespace="nowrap"
-                    data-type="text" data-responsive_offset="on"
-                    data-frames='[{"from":"x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1000,"split":"chars","splitdelay":0.05,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
-                    data-textAlign="['left','left','left','left']" data-paddingtop="[10,10,10,10]"
-                    data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]"
-                    style="z-index: 2; white-space: nowrap;font-family: 'Poppins', sans-serif;">Study In
-                </div>
-
-                <!-- LAYER NR. 2 -->
-                <div class="tp-caption NotGeneric-Title   tp-resizeme" id="slide-3045-layer-8"
-                    data-x="['left','left','left','left']" data-hoffset="['70','70','70','70']"
-                    data-y="['middle','middle','middle','middle']" data-voffset="['-70','0','0','0']"
-                    data-fontsize="['75','75','75','75']" data-lineheight="['90','90','90','90']" data-width="none"
-                    data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on"
-                    data-frames='[{"from":"x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1000,"split":"chars","splitdelay":0.05,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
-                    data-textAlign="['left','left','left','left']" data-paddingtop="[12,12,12,12]"
-                    data-paddingright="[0,0,0,0]" data-paddingbottom="[12,12,12,12]" data-paddingleft="[0,0,0,0]"
-                    style="z-index: 3; white-space: nowrap;font-family: 'Poppins', sans-serif; text-transform: none;">
-                    United Kingdom
-                </div>
-
-                <!-- LAYER NR. 3 -->
-                <div class="tp-caption   tp-resizeme" id="slide-3045-layer-11" data-x="['left','left','left','left']"
-                    data-hoffset="['70','70','70','70']" data-y="['middle','middle','middle','middle']"
-                    data-voffset="['-10','0','0','0']" data-fontsize="['18','18','18','18']"
-                    data-lineheight="['68','68','68','50']" data-width="none" data-height="none"
-                    data-whitespace="nowrap" data-type="text" data-responsive_offset="on"
-                    data-frames='[{"from":"x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1000,"split":"chars","splitdelay":0.05,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
-                    data-textAlign="['left','left','left','left']" data-paddingtop="[10,10,10,10]"
-                    data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]"
-                    style="z-index: 5; white-space: nowrap;font-family: 'Poppins', sans-serif; text-transform: none; color: #ffffff;">
-                    Study Abroad
-                </div>
-
-
-                <!-- LAYER NR. 5 -->
-                <div class="tp-caption Newspaper-Button rev-btn " id="slide-1687-layer-6"
-                    data-x="['left','left','left','left']" data-hoffset="['70','70','70','70']"
-                    data-y="['middle','middle','middle','middle']" data-voffset="['100','0','0','0']" data-width="none"
-                    data-height="none" data-whitespace="nowrap" data-fontsize="['16','16','16','16']" data-type="button"
-                    data-responsive_offset="on" data-responsive="on"
-                    data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(0, 0, 0, 1.00);bg:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
-                    data-textAlign="['left','left','left','left']" data-paddingtop="[15,15,15,15]"
-                    data-paddingright="[30,30,30,30]" data-paddingbottom="[15,15,15,15]"
-                    data-paddingleft="[30,30,30,30]"
-                    style="z-index: 8; font-weight: 600; white-space: nowrap;font-family: 'Poppins', sans-serif;outline:none;box-shadow:none;border:none; background:#ffffff; color:#3f77fa; cursor:pointer;letter-spacing: 0; border-radius: 5px;">
-                    <span>Find More</span>
-                </div>
-            </li>
-        </ul>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
         <!-- END SLIDES LIST -->
 
     </div>
     <!-- END SLIDER CONTAINER -->
 </div>
 <!-- END SLIDER CONTAINER WRAPPER -->
-
-<!--hero section end-->
-<!-- slider section ends -->
-<!-- search section starts -->
-<!-- <section>
-        <div class="req_img p-4">
-            <div class="container">
-
-                <div class="row justify-content-center  align-items-center">
-                    <div class="col-md-10">
-
-                        <form class="d-flex">
-                            <input class="form-control" type="search" placeholder="Type course or services" aria-label="Search">
-                            <button class="btn btn-outline-success p-60 rounded-0 search_btn" type="submit">Search</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-<!-- end of search -->
-
 <!-- About section starts -->
 <section class="pt-50 pb-50">
     <div class="aboutus">
@@ -197,8 +88,7 @@ get_header();
                         $sec1_img1=get_field("section_1_image_1");
                         $sec1_img2=get_field("section_1_image_2");
                         
-                         ;?>
-                        <h4 class="themestek-custom-heading ">About KEF</h4>
+                         ;?> <h4 class="themestek-custom-heading ">About KEF</h4>
                         <h3><?php echo $sec1_heading;?></h3>
 
 
@@ -371,7 +261,8 @@ get_header();
 
 
                         <div class="card-body">
-                            <h5 class="card-title "><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h5>
+                            <h5 class="card-title "><a href="<?php the_permalink(); ?>"><?php the_title();?></a>
+                            </h5>
                             <p class="card-text"><?php the_excerpt();?></p>
                             <a class="btn-get-started bg-transparent
                                 border text-theme rounded-3" href="<?php the_permalink(); ?>">Read More</a>
@@ -657,18 +548,15 @@ get_header();
                         ?>
             <div class="col-md-4">
                 <div class="card h-100">
-                    <img src="<?php echo get_template_directory_uri().'/assets/kangarooedu.com/images/thumbnail/1614252113.jpg" class="card-img-top';?>"
-                        alt="..." data-pagespeed-url-hash="1256136442"
+                    <img src="<?php the_post_thumbnail_url();?>" alt="..." class="card-img-top" alt="..."
+                        data-pagespeed-url-hash="1256136442"
                         onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
                     <div class="card-body">
-                        <a href="#">
-                            <h5 class="card-title">Dealing with Cultural Shock Abroad – A Nepalese Student
-                                Perspective</h5>
+                        <a href="<?php the_permalink();?>">
+                            <h5 class="card-title"><?php  echo the_title();?></h5>
                         </a>
                         <p class="card-text">
-                            Nepalese students have been studying abroad in the USA, UK, Australia, New Zealand,
-                            Canada and many more countries for over 5 decades. The trend seems to grow rapidly
-                            after the 2006 Nepalese revolution
+                            <?php echo the_excerpt();?>
                         </p>
 
                         <div class="mb-0 col-12 d-flex mainbtn  justify-content-start">

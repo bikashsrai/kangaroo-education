@@ -127,7 +127,7 @@ add_action( 'after_setup_theme', 'kangarooeducation_content_width', 0 );
 function kangarooeducation_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'kangarooeducation' ),
+			'name'          => esc_html__( 'Sidebar Kangaroo', 'kangarooeducation' ),
 			'id'            => 'sidebar-1',
 			'description'   => esc_html__( 'Add widgets here.', 'kangarooeducation' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -178,6 +178,7 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
 
 /**
  * Load Jetpack compatibility file.

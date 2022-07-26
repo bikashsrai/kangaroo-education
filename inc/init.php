@@ -7,6 +7,7 @@
  $files_loader=array(
     'inc/functions/assets.php',
     'inc/functions/setup.php',
+    'inc/functions/acf-options.php',
     'inc/functions/custom-post-types.php',
    'inc/acf-blocks/ke-theme-acf-block-category.php',
    'inc/acf-blocks/ke-theme-acf-blocks.php',

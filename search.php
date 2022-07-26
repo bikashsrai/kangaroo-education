@@ -10,20 +10,21 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<main id="primary" class="site-main">
 
-		<?php if ( have_posts() ) : ?>
+    <?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<h1 class="page-title">
-					<?php
+    <header class="page-header">
+        <h1 class="page-title">
+            <?php
 					/* translators: %s: search query. */
 					printf( esc_html__( 'Search Results for: %s', 'kangarooeducation' ), '<span>' . get_search_query() . '</span>' );
 					?>
-				</h1>
-			</header><!-- .page-header -->
+        </h1>
+    </header><!-- .page-header -->
 
-			<?php
+    <?php
+			get_search_form();
 			/* Start the Loop */
 			while ( have_posts() ) :
 				the_post();
@@ -36,6 +37,12 @@ get_header();
 				get_template_part( 'template-parts/content', 'search' );
 
 			endwhile;
+			the_posts_pagination(
+				array(
+					'pre_text'=>'Previous',
+					'next_text'=>'Next',
+				)
+			);
 
 			the_posts_navigation();
 
@@ -46,7 +53,7 @@ get_header();
 		endif;
 		?>
 
-	</main><!-- #main -->
+</main><!-- #main -->
 
 <?php
 get_sidebar();

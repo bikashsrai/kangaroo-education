@@ -43,6 +43,9 @@ get_header();
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-8 col-lg-8">
                     <!-- end -->
+                    <?php
+                    the_archive_title();
+                    ?>
                     <?php 
                             $args_post=array(
                                     'post_type'=>'post',
@@ -59,20 +62,17 @@ get_header();
                         ?>
                     <div class="blog_single">
                         <div class="blog_image">
-                            <a href="<?php the_permalink();?>" title=""><img
-                                    src="<?php echo get_template_directory_uri().'/assets/img/aus.jpg';?>" alt=""
-                                    class="img-fluid w-100"></a>
+                            <a href="<?php the_permalink();?>" title=""><img src="<?php the_post_thumbnail_url();?>"
+                                    alt="..." class="img-fluid-100"></a>
                         </div>
                         <div class="blog_content">
                             <div class="blog_date">
-                                <p>Posted On : Feb 14 2021 - <span>uuuuuuImmigration Category</span>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; <span>BY : John Doe</span></p>
+                                <p>Posted On : <?php echo get_the_date();?> - <span><?php the_category('');?></span>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; <span>BY :
+                                        <?php echo get_the_author(); ?></span></p>
                             </div>
-                            <h3><a href="<?php the_permalink();?>" title="">Tips For English Proficiency Test (IELTS And
-                                    PTE)</a></h3>
-                            <p>Thinking about taking an English proficiency test for immigration or study purposes?
-                                Unsure which test (PTE or IELTS) will be better for you? We will try to explain you both
-                                and help you decide on one.</p>
+                            <h3><a href="<?php the_permalink();?>" title=""><?php echo the_title();?></a></h3>
+                            <p><?php echo the_excerpt();?></p>
                             <div class="blog_user d-flex justify-content-between">
                                 <a class="btn-get-started text-white" href="<?php the_permalink();?>">Read More</a>
                                 <div class="blog_social d-flex">
@@ -92,50 +92,15 @@ get_header();
                     endwhile;
                     wp_reset_postdata();
                 endif;?>
-                    <!-- end -->
-
-                    <!-- <div class="blog_single">
-                        <div class="blog_image">
-                            <a href="blog_single.html" title=""><img
-                                    src="<?php echo get_template_directory_uri().'/assets/img/c2.jpg';?>" alt=""
-                                    class="img-fluid w-100"></a>
-                        </div>
-                        <div class="blog_content">
-                            <div class="blog_date">
-                                <p>Posted On : Feb 14 2021 - <span>Immigration Category</span>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; <span>BY : John Doe</span></p>
-                            </div>
-                            <h3><a href="blog_single.html" title="">Dealing With Cultural Shock Abroad – A Nepalese
-                                    Student Perspective</a></h3>
-                            <p>Nepalese students have been studying abroad in the USA, UK, Australia, New Zealand,
-                                Canada and many more countries for over 5 decades. The trend seems to grow rapidly after
-                                the 2006 Nepalese revolution </p>
-                            <div class="blog_user d-flex justify-content-between">
-                                <a class="btn-get-started text-white" href="blog_single.html">Read More</a>
-                                <div class="blog_social d-flex">
-                                    <span>Share On : </span>
-                                    <ul class="social-items d-flex list-unstyled">
-                                        <li><a href="#"><i class="fab fa-facebook-f fb_icon"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter tw_icon"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-linkedin-in link_icon"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-instagram in_icon"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    end -->
-
-
                     <!-- pagination -->
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-end">
-                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><?php previous_post_link('&laquo; %link');
+                            ?></a>
+                            </li>
+
+                            <li class="page-item"><a class="page-link"
+                                    href="#"><?php next_post_link('%link &raquo;');?></a></li>
                         </ul>
                     </nav>
                 </div>
@@ -143,25 +108,29 @@ get_header();
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4  ">
                     <div class="blog_right">
                         <div class="blog_search mb-4">
-                            <form class="d-flex">
-                                <input class="form-control rounded-0" type="search" placeholder="Search"
-                                    aria-label="Search">
-                                <button class="btn btn-get-started rounded-0 m-0 d-flex align-items-center"
-                                    type="submit"><i class="fas fa-search me-2"></i> Search</button>
+                            <form role="search" class="d-flex search-form" method="get"
+                                action="<?php echo esc_url(home_url('/'));?>">
+
+                                <input class="form-control rounded-0 search-field" type="search" name="s"
+                                    value="<?php echo get_search_query();?>" placeholder="Search" aria-label="Search">
+
+                                <button
+                                    class="btn btn-get-started rounded-0 m-0 d-flex align-items-center search-submit"
+                                    type="submit"><span class=" screen-reader-text"></span><i
+                                        class="fas fa-search me-2"></i> search here</button>
+
+
+
                             </form>
                         </div>
                         <div class="archives widget_single">
                             <div class="items-title">
-                                <h3 class="title">All Categories</h3>
+                                <!-- <h3 class="title">All Categories</h3> -->
+                                <h3 class="title">All </h3>
                             </div>
                             <div class="archives-items">
                                 <ul class="list-unstyled">
-                                    <li><a href="#" title="">Study Abroad </a></li>
-                                    <li><a href="#" title="">International Students</a></li>
-                                    <li><a href="#" title="">Tourist Visa</a></li>
-                                    <li><a href="#" title="">English Proficency</a></li>
-                                    <li><a href="#" title="">Visa</a></li>
-                                    <li><a href="#" title="">Others</a></li>
+                                    <?php get_sidebar();?>
                                 </ul>
                             </div>
                         </div>

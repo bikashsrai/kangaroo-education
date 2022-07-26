@@ -172,10 +172,29 @@ function ke_theme_init_block_types(){
             'name'            =>'ke-theme-single-institution', //a unique name that identifies the block
             'title'           =>__('Single Instiution'), //The display for your block
             'description'     =>__('A custom block for single institution'), //optional
-            'render_template' => 'single-institution.php',
+            'render_template' => 'template-parts/blocks/content-single_institution.php',
 			'category'        => 'ke-blocks',
 			'icon'            => 'admin-page',// optional
 			'keywords'        => array( 'our ', 'approach' ), //optional
+			'mode'            => 'edit', //optional
+			'supports'        => array( //optional
+					'mode'    => false,
+					'align'   => false,
+				), 
+            
+            )); 
+
+
+
+			 //TRegister for the single post block
+              acf_register_block_type(array(
+            'name'            =>'ke-theme-single post ', //a unique name that identifies the block
+            'title'           =>__('Single Post '), //The display for your block
+            'description'     =>__('A custom block forsingle post default'), //optional
+            'render_template' => 'template-parts/blocks/content-singular.php',
+			'category'        => 'ke-blocks',
+			'icon'            => 'admin-page',// optional
+			'keywords'        => array( 'single ', 'post' ), //optional
 			'mode'            => 'edit', //optional
 			'supports'        => array( //optional
 					'mode'    => false,
@@ -200,6 +219,111 @@ function ke_theme_init_block_types(){
 				), 
             
             )); 
+			//Register the photo gallery
+
+			acf_register_block_type(array(
+            'name'            =>'ke-theme-photo-gallery', //a unique name that identifies the block
+            'title'           =>__('Photo List'), //The display for your block
+            'description'     =>__('A  block for photo gallery'), //optional
+            'render_template' => 'archive-photogallery.php',
+			'category'        => 'ke-blocks',
+			'icon'            => 'admin-page',// optional
+			'keywords'        => array( 'our ', 'post' ), //optional
+			'mode'            => 'edit', //optional
+			'supports'        => array( //optional
+					'mode'    => false,
+					'align'   => false,
+				), 
+            
+            )); 
+			//Register the single subpage single-photo gallery from parent page media
+
+			acf_register_block_type(array(
+            'name'            =>'ke-theme-single-photo', //a unique name that identifies the block
+            'title'           =>__('Photo Single'), //The display for your block
+            'description'     =>__('A  block for  single photo gallery'), //optional
+            'render_template' => 'template-parts/blocks/content-single_photo.php',
+			'category'        => 'ke-blocks',
+			'icon'            => 'admin-page',// optional
+			'keywords'        => array( 'our ', 'post' ), //optional
+			'mode'            => 'edit', //optional
+			'supports'        => array( //optional
+					'mode'    => false,
+					'align'   => false,
+				), 
+            
+            )); 
+
+			  //Register the video blog
+              acf_register_block_type(array(
+            'name'            =>'ke-theme-video-gallery', //a unique name that identifies the block
+            'title'           =>__('Videos Gallery'), //The display for your block
+            'description'     =>__('A custom block for videos gallery'), //optional
+            'render_template' => 'template-parts/blocks/content-video_gallery.php',
+			'category'        => 'ke-blocks',
+			'icon'            => 'admin-page',// optional
+			'keywords'        => array( 'gallery ', 'video' ), //optional
+			'mode'            => 'edit', //optional
+			'supports'        => array( //optional
+					'mode'    => false,
+					'align'   => false,
+				), 
+            
+            )); 
+			 //Register the single video display block
+              acf_register_block_type(array(
+            'name'            =>'ke-theme-single-video', //a unique name that identifies the block
+            'title'           =>__('Videos Single'), //The display for your block
+            'description'     =>__('A custom block for  single videos gallery'), //optional
+            'render_template' => 'template-parts/blocks/content-single_videos.php',
+			'category'        => 'ke-blocks',
+			'icon'            => 'admin-page',// optional
+			'keywords'        => array( 'gallery ', 'video' ), //optional
+			'mode'            => 'edit', //optional
+			'supports'        => array( //optional
+					'mode'    => false,
+					'align'   => false,
+				), 
+            
+            )); 
+
+			//Register the contact us button block page
+			   acf_register_block_type(array(
+            'name'            =>'ke-theme-contactus', //a unique name that identifies the block
+            'title'           =>__('Contact KE'), //The display for your block
+            'description'     =>__('A custom block for  Contact Us'), //optional
+            'render_template' => 'template-parts/blocks/content-contact_us.php',
+			'category'        => 'ke-blocks',
+			'icon'            => 'admin-page',// optional
+			'keywords'        => array( 'cintact ', 'us' ), //optional
+			'mode'            => 'edit', //optional
+			'supports'        => array( //optional
+					'mode'    => false,
+					'align'   => false,
+				), 
+            
+            )); 
+
+			// Register Banner Slide
+			//    acf_register_block_type(array(
+            // 'name'            =>'ke-theme-banner', //a unique name that identifies the block
+            // 'title'           =>__('Banner slide'), //The display for your block
+            // 'description'     =>__('A custom block for  banner'), //optional
+            // 'render_template' => 'template-parts/content-mainbanner.php',
+			// 'category'        => 'ke-blocks',
+			// 'icon'            => 'admin-page',// optional
+			// 'keywords'        => array( 'banner ', 'us' ), //optional
+			// 'mode'            => 'edit', //optional
+			// 'supports'        => array( //optional
+			// 		'mode'    => false,
+			// 		'align'   => false,
+			// 	), 
+            
+            // )); 
+                 
+                 
+
+
 
 
 

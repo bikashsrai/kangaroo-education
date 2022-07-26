@@ -35,13 +35,17 @@
 
 <!-- Footer Section Starts -->
 <footer class="footer-area">
+
     <div class="footer-top-area"
         style="background-image: url(<?php echo get_template_directory_uri().'/assets/img/footerbg.png';?>);">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5 col-md-6 col-sm-6">
                     <div class="footer-widget widget">
-                        <p class="footer-title">Request a Schedule For Free Consultation</p>
+                        <?php 
+                        $title_footer=get_field('heading_inquiry','option');
+                        ?>
+                        <p class="footer-title"><?php echo $title_footer;?></p>
                     </div>
                 </div>
                 <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
@@ -49,8 +53,10 @@
                         <ul class="contact_info_list">
                             <li class="single-info-item">
                                 <div class="details">
-                                    <p class="number">+11 0265 0369 125</p>
-                                    <small>Call Now</small>
+                                    <?php
+                                  $contact_inquiry=get_field('contact_number_inquiry','option') ;
+                                  echo $contact_inquiry;?>
+
                                 </div>
                             </li>
                         </ul>
@@ -71,18 +77,35 @@
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="footer-widget widget">
                             <div class="about_us_widget">
-                                <a href="index-2.html" class="footer-logo"> <img
-                                        src="<?php echo get_template_directory_uri().'/assets/img/logo-white.png';?>"
-                                        alt="footer logo"></a>
-                                <p class="text-white">Maecenas posuere neque et volutpat accumsan. Aliquam
-                                    hendrerit tincidunt diam eu imperdiet. Etiam dictum suscipit tempus.
-                                    Vestibulum eget pellentesque dolor.</p>
+                                <?php 
+                                $des_footer=get_field('description_footer','option'); 
+                                $enable_footer_logo=get_field('logo_ke','option');
+                                if($enable_footer_logo):
+                                $footer_logo=get_field('logo_white','option');
+                                ?>
+                                <a href="<?php echo home_url();?>" class="footer-logo">
+                                    <?php
+									if ( ! empty( $footer_logo ) ): ?>
+                                    <img src="<?php echo esc_url( $footer_logo['url'] ); ?>"
+                                        alt="<?php echo esc_attr( $footer_logo['alt'] ); ?>">
+                                    <?php endif; ?>
+
+                                </a>
+                                <?php endif;?>
+                                <p class="text-white"><?php echo $des_footer;?></p>
+                                <?php 
+                                    if(have_rows('social_links_footer','option')):
+                                    ;?>
                                 <ul class="social_share margin-top-20">
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                    <?php 
+                                    while(have_rows('social_links_footer','option')):the_row();
+                                      $icon_social=get_sub_field('icons_social_footer','option');
+                                   ?>
+                                    <li><a href="#"><i class="fab fa-<?php echo $icon_social;?>"></i></a></li>
+                                    <!-- <li><a href="#"><i class="fab fa-twitter"></i></a></li>-->
+                                    <?php endwhile; ?>
                                 </ul>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -90,11 +113,19 @@
                         <div class="footer-widget widget widget_nav_menu">
                             <h4 class="widget-headline">Support</h4>
                             <ul class="nav_menu">
-                                <li><a href="#">Event</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">IT Consultancy</a></li>
-                                <li><a href="#">IELTS</a></li>
-                                <li><a href="#">PTE</a></li>
+                                <!-- <li><a href="#">Event</a></li> -->
+                                <?php 
+                                wp_nav_menu(array(
+                                    'theme_location'=>'footer-one',
+                                    'depth'          => 0, // 1 = no dropdowns, 2 = with dropdowns.
+									'container'      => '',
+									'menu_id'        => '',
+									'menu_class'     => 'nav_menu',
+									'add_li_class'   => ''
+
+                                ));
+                                
+                                ?>
                             </ul>
                         </div>
                     </div>
@@ -102,10 +133,19 @@
                         <div class="footer-widget widget widget_nav_menu">
                             <h4 class="widget-headline">Company</h4>
                             <ul class="nav_menu">
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">What We Do</a></li>
-                                <li><a href="#">Who We Are</a></li>
-                                <li><a href="#">Contact Us</a></li>
+                                <!-- <li><a href="#">About Us</a></li> -->
+                                <?php 
+                                wp_nav_menu(array(
+                                    'theme_location'=>'footer-two',
+                                    'depth'          => 0, // 1 = no dropdowns, 2 = with dropdowns.
+									'container'      => '',
+									'menu_id'        => '',
+									'menu_class'     => 'nav_menu',
+									'add_li_class'   => ''
+
+                                ));
+                                
+                                ?>
                             </ul>
                         </div>
                     </div>
@@ -113,18 +153,36 @@
                         <div class="footer-widget widget widget_nav_menu">
                             <h4 class="widget-headline">Kangarooedu Career</h4>
                             <ul class="nav_menu">
-                                <li><a href="#">Privacy</a></li>
-                                <li><a href="#">Conditions</a></li>
-                                <li><a href="#">Offices</a></li>
-                                <li><a href="#">Careers</a></li>
+                                <?php 
+                                wp_nav_menu(array(
+                                    'theme_location'=>'footer-three',
+                                    'depth'          => 0, // 1 = no dropdowns, 2 = with dropdowns.
+									'container'      => '',
+									'menu_id'        => '',
+									'menu_class'     => 'nav_menu',
+									'add_li_class'   => ''
+
+                                ));
+                                
+                                ?>
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-12 visitus">
                         <h5>Visit us at :
-                            <a href="https://kangarooedu.com.au/" target="_blank" class="text-warning"><img
-                                    src="<?php echo get_template_directory_uri().'/assets/img/flag.png';?>"
-                                    class="img-fluid" alt=""> Australia</a>
+                            <?php 
+                            $url_ke=get_field('url_ke','option');
+                            $c_name=get_field('country_name','option');
+                            $img_circle=get_field('image_circle','option');
+                            ?>
+                            <a href="<?php esc_url($url_ke);?>" target="_blank" class="text-warning">
+                                <?php
+								if ( ! empty( $img_circle ) ): ?>
+                                <img class="img-fluid" src="<?php echo esc_url( $img_circle['url'] ); ?>"
+                                    alt="<?php echo esc_attr( $img_circle['alt'] ); ?>">
+                                <?php endif; ?><?php echo $c_name;?>
+                            </a>
+
                         </h5>
                     </div>
                 </div>
@@ -133,8 +191,10 @@
 
                     <div class="row">
                         <div class="col-lg-12">
+                            <?php 
+                             $copyright=get_field('copy_right_text','option');?>
                             <div class="copyright-area-inner text-center text-white">
-                                Copyright © 2022 Kangarooedu. Designed By VolgAI
+                                <?php echo $copyright;?>
                             </div>
                         </div>
 
@@ -279,7 +339,6 @@
     </div>
 </div>
 <a href="#" class="toTopBtn"><i class="fas fa-angle-up"></i></a>
-
 
 <?php wp_footer();?>
 </body>

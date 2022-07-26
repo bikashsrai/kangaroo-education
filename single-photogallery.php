@@ -1,7 +1,7 @@
 <?php 
 /***
- * display single post
- * block single post 
+ * display single photo
+ * block single photo
  */
 get_header();
 ?>

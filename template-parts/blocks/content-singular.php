@@ -6,33 +6,7 @@
   ;?>
  <!-- main bosy part start -->
  <!-- breadcrumb -->
- <div class="aemi_breadcrumb"
-     style="background-image:url(<?php echo get_template_directory_uri().'/assets/himalayanbusiness/images/ban1.jpg';?>)">
-     <div class="container">
-         <div class="row">
-             <div class="col-md-12">
-                 <div class="breadcrumb_title ">
-                     <div class="page-title-heading">
-                         <h1 class="title">
-                             Blogs</h1>
-                     </div>
-
-                     <div class="breadcrumb-wrapper">
-                         <span>
-                             <a title="Homepage" href="index-2.html"><i class="fas fa-home"></i>&nbsp;&nbsp;Home</a>
-                         </span>
-                         <span class="seperator text-white">&nbsp; | &nbsp;</span>
-                         <span class="text-theme">
-                             Blog Single t </span>
-                     </div>
-                 </div>
-             </div>
-
-         </div>
-
-     </div>
-
- </div>
+ <?php require get_template_directory() . '/bannersec.php';?>
 
  <!-- Blogs -->
  <section class="pt-50">
@@ -70,15 +44,15 @@
                                      <span>Share On : </span>
                                      <ul class="social-items d-flex list-unstyled">
                                          <?php 
-                        if(have_rows('social_icons_post')):
-                        while(have_rows('social_icons_post')):the_row();
-                        $icon_sp=get_sub_field('icon_social_single');
+                                     if(have_rows('social_icons_post')):
+                                   while(have_rows('social_icons_post')):the_row();
+                                    $icon_sp=get_sub_field('icon_social_single');
                         
-                        ?>
+                                             ?>
                                          <li><a href="#"><i class="fab fa-<?php echo $icon_sp;?>"></i></a></li>
 
                                          <?php endwhile;
-                    endif;?>
+                                       endif;?>
                                      </ul>
                                  </div>
                              </div>
@@ -115,7 +89,8 @@
                              <div class="new_post">
                                  <div class="single-post d-flex align-items-center">
                                      <div class="recent_img">
-                                         <a href="<?php the_permalink();?>" title=""><img src="assets/img/c2.jpg" alt=""
+                                         <a href="<?php the_permalink();?>" title=""><img src=""
+                                                 <?php echo get_template_directory_uri().'/assets/img/c2.jpg';?>" alt=""
                                                  class="img-fluid"></a>
                                      </div>
                                      <div class="post_title">
@@ -130,7 +105,9 @@
 
                                  <div class="single-post d-flex align-items-center">
                                      <div class="recent_img">
-                                         <a href="#" title=""><img src="assets/img/c1.jpg" alt="" class="img-fluid"></a>
+                                         <a href="#" title=""><img
+                                                 src="<?php echo get_template_directory_uri().'/assets/img/c1.jpg';?>"
+                                                 alt="" class="img-fluid"></a>
                                      </div>
                                      <div class="post_title">
                                          <a href="#" title="">Dealing With Cultural Shock Abroad – A Nepalese
@@ -143,7 +120,7 @@
                                  </div>
                              </div>
                          </div>
-                         <div class="archives widget_single">
+                         <!-- <div class="archives widget_single">
                              <div class="items-title">
                                  <h3 class="title">All Categories</h3>
                              </div>
@@ -157,7 +134,7 @@
                                      <li><a href="#" title="">Others</a></li>
                                  </ul>
                              </div>
-                         </div>
+                         </div> -->
 
                          <div class="archives widget_single popular_tags">
                              <div class="items-title">

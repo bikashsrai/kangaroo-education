@@ -274,7 +274,14 @@
                     Consultation</h6>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+
+            <!--............................ Book Consulatancy form................... -->
+
+            <?php 
+                        $consultancy_contact=get_field('consultant_form_contact');
+                        echo do_shortcode($consultancy_contact);?>
+            <!--............................ Book Consulatancy form................... -->
+            <!-- <div class="modal-body">
                 <div class="bookform">
                     <div class="form-group">
                         <div class="pt-0">
@@ -334,13 +341,16 @@
                             rounded-0" data-bs-dismiss="modal">Reset</button>
                 <button type="button" class="btn btn-primary btn_purple
                             border-0 rounded-0">Submit</button>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
 <a href="#" class="toTopBtn"><i class="fas fa-angle-up"></i></a>
 
 <?php wp_footer();?>
+<script>
+jQuery('<i class="fas fa-chevron-down"></i>').insertAfter('li.dropdown');
+</script>
 </body>
 
 

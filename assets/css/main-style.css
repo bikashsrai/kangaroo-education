@@ -636,9 +636,9 @@ label {
   margin-bottom: 15px;
 }
 
-/* .sec_line-main { */
-/* margin: 8px 0 30px !important; */
-/* } */
+.sec_line-main {
+  /* margin: 8px 0 30px !important; */
+}
 
 .inner_section_title.t_left .sec_line {
   margin: 0 0 5px;
@@ -2583,21 +2583,20 @@ ul.prof_list li {
   }
 }
 
-/* added by bikash  start*/
+/*  added by  Bikash Rai start */
 
-.elementor-screen-only,
-.screen-reader-text,
-.screen-reader-text span,
-.ui-helper-hidden-accessible {
-  position: absolute;
-  top: -10000em;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
+.dest_para {
+  color: #fff;
 }
 
-/* added by bikash  end*/
+.choosepara {
+  color: #fff !important;
+  justify-content: center;
+}
+.card-text-online {
+  color: #fff;
+}
+.about_us_widget {
+  color: #fff;
+}
+/*  added by  Bikash Rai end */

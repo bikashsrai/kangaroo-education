@@ -17,9 +17,14 @@
         <meta charset="<?php bloginfo( 'charset' ); ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- <link rel="profile" href="https://gmpg.org/xfn/11"> -->
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="generator" content="Hugo 0.84.0">
         <?php
         wp_enqueue_script("jquery");
         wp_head(); ?>
+
     </head>
 
     <body <?php body_class(); ?>>

@@ -15,62 +15,128 @@ get_header();
 
 <!-- slider section starts -->
 <!--hero section start-->
+<!-- main bosy part start -->
 
+<!-- slider section starts -->
+<!--hero section start-->
+
+<?php $enable_banner=get_field('enable__banner_section');
+if($enable_banner){?>
 <div class="rev_slider_wrapper">
+
     <div id="rev_slider_1" class="rev_slider rev_slider-1">
 
         <!-- BEGIN SLIDES LIST -->
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="<?php echo get_template_directory_uri().'/assets/img/aus.jpg';?>" class="d-block w-100"
-                        alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Study In Australia</h5>
-                        <p>Study Abroad</p>
-                    </div>
+
+        <ul>
+            <?php 
+               if(have_rows('banner_section_rep')):
+                while(have_rows('banner_section_rep')):the_row();
+                $img_slider1=get_sub_field('image_slide_banner');
+                $title_ban=get_sub_field('title_banner_1');
+                $country_name=get_sub_field('country_name_destination');
+                $sub_title=get_sub_field('title_sub_banner');
+                $link_banner=get_sub_field('link__contact_banner');
+             ?>
+            <li data-index="rs-280" data-transition="zoomout" data-slotamount="default" data-easein="Power4.easeInOut"
+                data-easeout="Power4.easeInOut" data-masterspeed="2000" data-rotate="0" data-saveperformance="off"
+                data-title="01" data-description="">
+                <div class="slider-overlay"></div>
+
+
+                <?php 
+                if(!empty(  $img_slider1)):?>
+                <img src="<?php echo esc_url($img_slider1['url']);?>" alt="<?php $img_slider1['alt'];?>"
+                    class="rev-slidebg" data-bgparallax="3" data-bgposition="center center" data-duration="20000"
+                    data-ease="Linear.easeNone" data-kenburns="on" data-no-retina="" data-offsetend="0 0"
+                    data-offsetstart="0 0" data-rotateend="0" data-rotatestart="0" data-scaleend="100"
+                    data-scalestart="140">
+
+                <?php endif;?>
+
+
+                <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
+                <!-- BEGIN BASIC TEXT LAYER -->
+                <!-- LAYER NR. 1 -->
+                <div class="tp-caption NotGeneric-Title   tp-resizeme" id="slide-3045-layer-1"
+                    data-x="['left','left','center','middle']" data-hoffset="['70','70','70','70']"
+                    data-y="['middle','middle','middle','middle']" data-voffset="['-135','0','0','0']"
+                    data-fontsize="['56','56','56','56']" data-width="none" data-height="none" data-whitespace="nowrap"
+                    data-type="text" data-responsive_offset="on"
+                    data-frames='[{"from":"x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1000,"split":"chars","splitdelay":0.05,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                    data-textAlign="['left','left','left','left']" data-paddingtop="[10,10,10,10]"
+                    data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]"
+                    style="z-index: 2; white-space: nowrap;font-family: 'Poppins', sans-serif; text-transform: none;">
+                    <?php echo $title_ban;?>
                 </div>
-                <div class="carousel-item">
-                    <img src="<?php echo get_template_directory_uri().'/assets/img/a2.jpg';?>" class="d-block w-100"
-                        alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Study In Australia</h5>
-                        <p>Study Abroad</p>
-                    </div>
+
+                <!-- LAYER NR. 2 -->
+                <div class="tp-caption NotGeneric-Title   tp-resizeme" id="slide-3045-layer-2"
+                    data-x="['left','left','left','left']" data-hoffset="['70','70','70','70']"
+                    data-y="['middle','middle','middle','middle']" data-voffset="['-70','0','0','0']"
+                    data-fontsize="['75','75','75','75']" data-lineheight="['90','90','90','90']" data-width="none"
+                    data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on"
+                    data-frames='[{"from":"x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1000,"split":"chars","splitdelay":0.05,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                    data-textAlign="['left','left','left','left']" data-paddingtop="[10,10,10,10]"
+                    data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]"
+                    style="z-index: 3; white-space: nowrap;font-family: 'Poppins', sans-serif; text-transform: none;">
+                    <?php echo $country_name;?>
                 </div>
-                <div class="carousel-item">
-                    <img src="<?php echo get_template_directory_uri().'/assets/img/a1.jpg';?>" class="d-block w-100"
-                        alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Study In Australia</h5>
-                        <p>Study Abroad</p>
-                    </div>
+
+                <!-- LAYER NR. 3 -->
+                <div class="tp-caption   tp-resizeme" id="slide-3045-layer-3" data-x="['left','left','middle','middle']"
+                    data-hoffset="['70','70','70','70']" data-y="['middle','middle','middle','middle']"
+                    data-voffset="['-10','0','0','0']" data-fontsize="['18','18','18','18']"
+                    data-lineheight="['68','68','68','50']" data-width="none" data-height="none"
+                    data-whitespace="nowrap" data-type="text" data-responsive_offset="on"
+                    data-frames='[{"from":"x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1000,"split":"chars","splitdelay":0.05,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                    data-textAlign="['left','left','left','center']" data-paddingtop="[10,10,10,10]"
+                    data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]"
+                    style="z-index: 5; white-space: nowrap;font-family: 'Poppins', sans-serif; text-transform: none; color: #ffffff;">
+                    <?php echo $sub_title;?>
                 </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
+
+
+                <!-- LAYER NR. 5 -->
+                <div class="tp-caption Newspaper-Button rev-btn " id="slide-1687-layer-5"
+                    data-x="['left','left','left','left']" data-hoffset="['70','70','70','70']"
+                    data-y="['middle','middle','middle','middle']" data-voffset="['100','0','0','0']" data-width="none"
+                    data-height="none" data-whitespace="nowrap" data-fontsize="['16','16','16','16']" data-type="button"
+                    data-responsive_offset="on" data-responsive="on"
+                    data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(0, 0, 0, 1.00);bg:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
+                    data-textAlign="['left','left','left','left']" data-paddingtop="[15,15,15,15]"
+                    data-paddingright="[30,30,30,30]" data-paddingbottom="[15,15,15,15]"
+                    data-paddingleft="[30,30,30,30]"
+                    style="z-index: 8; font-weight: 600; white-space: nowrap;font-family: 'Poppins', sans-serif; outline:none;box-shadow:none;border:none; background:#ffffff; color:#3f77fa; cursor:pointer;letter-spacing: 0; border-radius: 5px;">
+                    <?php 
+                                          
+                       if($link_banner):
+                                                   
+	                    $link_url = $link_banner['url'];
+	                    $link_title = $link_banner['title'];
+	                    $link_target = $link_banner['target'] ? $link_banner['target'] : '_self';?>
+
+                    <a href="<?php echo esc_url( $link_url ); ?>"
+                        target="<?php echo esc_attr( $link_target ); ?>"><span><?php echo esc_html( $link_title ); ?></span></a>
+                    <?php endif; ?>
+                </div>
+
+            </li>
+            <?php endwhile;
+            endif;
+            ?>
+
+        </ul>
+
+
         <!-- END SLIDES LIST -->
 
     </div>
+
     <!-- END SLIDER CONTAINER -->
 </div>
+<?php }?>
+<!-- END SLIDER CONTAINER WRAPPER -->
 <!-- END SLIDER CONTAINER WRAPPER -->
 <!-- About section starts -->
 <section class="pt-50 pb-50">
@@ -323,10 +389,23 @@ get_header();
                                
                                  ?>
                                 <h5 class="card-title text-white fw-bold"><?php echo $heading_title;?></h5>
-                                <p class="card-text text-white"><?php echo $des_title;?>
-                                </p>
-                                <a href="#" class="btn btn-primary btn-sm mybtn mt-4 mb-3 border"><i
-                                        class="fas fa-phone ms-2"></i> Get Free Assessment </a>
+                                <p class="card-text-online"><?php echo $des_title;?></p>
+
+                                <?php
+                                     $link_assement=get_field('assesment_link');
+										if ( $link_assement ):
+											$link_url = $link_assement['url'];
+											$link_title = $link_assement['title'];
+											$link_target = $link_assement['target'] ? $link_assement['target'] : '_self';
+										?>
+
+                                <a class="btn btn-primary btn-sm mybtn mt-4 mb-3 border"
+                                    href="<?php echo esc_url( $link_url ); ?>"
+                                    target="<?php echo esc_attr( $link_target ); ?> class=" Kef_btn btn-one"><i
+                                        class="fas fa-phone ms-2"></i><?php echo esc_html( $link_title ); ?></a>
+                                <?php endif; ?>
+
+
                             </div>
                         </div>
                     </div>
@@ -480,7 +559,8 @@ get_header();
             <!-- end section header title -->
 
             <!-- review section -->
-            <script src="../static.elfsight.com/platform/platform.js" defer></script>
+            <script src="<?php echo get_template_directory_uri().'/assets/staticelfsight/platform/platform.js';?>"
+                defer></script>
             </script>
             <div class="elfsight-app-c16ccae7-5d68-4c2f-8b35-33efda1f380f"></div>
         </div>
@@ -503,6 +583,7 @@ get_header();
                 <div class="col-xl-12 col-lg-12 col-md-12 ">
 
                     <div class="form-wrapper">
+                       
                         <a class="btn-get-started booknow p-3" href="#" data-bs-toggle="modal"
                             data-bs-target="#booknowModal">Book A
                             Consultation!!</a>

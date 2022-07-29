@@ -60,16 +60,24 @@ get_header();?>
                     'orderby'=>'date'
                 );
 
-                $institution_featured= new WP_query($institution_selection);
+                $institution_featured= new WP_Query($institution_selection);
                 if($institution_featured->have_posts()):
                     while($institution_featured->have_posts()):$institution_featured->the_post();
+
+                              
+                // $termsArray=get_the_terms($post->ID,'institution_category');
+                // $termsSlug="";
+                // foreach($termsArray as $term){
+                //     $termsSlug.=$term->slug."";
+                // }
                ?>
                 <div class="col-md-3 australia">
-                    <a href="<?php the_permalink();?>">
+
+                    <a href="<?php echo get_the_permalink(get_the_ID());?>">
                         <div class="brands_item d-flex flex-column
                                 justify-content-center">
                             <img src="<?php the_post_thumbnail_url();?>" alt="...">
-                            <p class="text-center"><?php echo the_title();?></p>
+                            <p class="text-center"> <?php the_title();?></p>
                         </div>
                     </a>
                 </div>

@@ -1,42 +1,11 @@
-<?php 
-
-/**
- * single post for the photo gallery
- * 
- */
-get_header();
-?>
-
 <!-- main bosy part start -->
 <!-- breadcrumb -->
-<div class="aemi_breadcrumb"
-    style="background-image:url(<?php echo get_template_directory_uri().'/assets/himalayanbusiness/images/ban1.jpg';?>)">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="breadcrumb_title ">
-                    <div class="page-title-heading">
-                        <h1 class="title">
-                            Gallery </h1>
-                    </div>
 
-                    <div class="breadcrumb-wrapper">
-                        <span>
-                            <a title="Homepage" href="index-2.html"><i class="fas fa-home"></i>&nbsp;&nbsp;Home</a>
-                        </span>
-                        <span class="seperator text-white">&nbsp; | &nbsp;</span>
-                        <span class="text-theme">
-                            Photo Single </span>
-                    </div>
-                </div>
-            </div>
+<?php
+get_header();
+require get_template_directory() . '/bannersec.php';?>
 
-        </div>
-
-    </div>
-
-</div>
-
+<!-- gallery single starts -->
 <!-- gallery single starts -->
 <section class="pt-50">
     <div class="imagegallery">
@@ -44,7 +13,7 @@ get_header();
             <div class="row">
                 <div class="col-md-12">
                     <div class="inner_section_title t_left text-center">
-                        <h3 class=""><?php echo the_title();?></h3>
+                        <h3 class="">Kangaroo Scholarship Week 2020</h3>
 
 
                         <div class="sec_line-main m-auto text-center
@@ -61,27 +30,51 @@ get_header();
                         <div class="col-lg-12">
                             <div class="card border-0">
                                 <div class="card-body">
+                                    <?php if(have_rows('image_pp_rep')):?>
 
                                     <div id="lightgallery" class="row lightGallery">
-                                        <!--repeater halnuparxa .....?????????  -->
+                                        <?php while(have_rows('image_pp_rep')):the_row();
+                                        $image_single=get_sub_field('image_gg');?>
 
                                         <?php 
-            if(have_rows('image_photo_gallery')):
-            while(have_rows('image_photo_gallery')):the_row();
-            $img_single1=get_sub_field('image_gallery_1');
-          
-            ?>
-                                        <a href="<?php the_permalink();?>" class="image-tile col-md-4" data-abc="true">
-                                            <?php
-                                    if ( ! empty( $img_single1 ) ): ?>
-                                            <img class="img-fluid" src="<?php echo esc_url( $img_single1['url'] ); ?>"
-                                                alt="<?php echo esc_attr( $img_single1['alt'] ); ?>">
-                                            <?php endif; ?>
-                                        </a>
-                                        <?php endwhile;
-                                      endif;?>
+                                        
+                                                                 
+                                                 if(!empty( $image_single)):?>
+                                        <a href="<?php echo esc_url($image_single['url']);?>"
+                                            class="image-tile col-md-4" data-abc="true">
+                                            <img src="<?php echo esc_url($image_single['url']);?>" class="img-fluid"
+                                                alt="<?php echo esc_attr( $image_single['alt']); ?>"></a>
+                                        <?php endif; ?>
+                                        <?php endwhile;?>
+
+
+                                        <!-- <a href=" assets/img/c2.jpg" class="image-tile col-md-4"
+                                            data-abc="true"><img src="assets/img/c2.jpg" alt="image small"
+                                                class="img-fluid"></a>
+
+
+
+                                        <a href="assets/img/c3.jpg" class="image-tile col-md-4" data-abc="true"><img
+                                                src="assets/img/c3.jpg" alt="image small" class="img-fluid"></a>
+
+                                        <a href="assets/img/c4.jpg" class="image-tile col-md-4" data-abc="true"><img
+                                                src="assets/img/c4.jpg" alt="image small" class="img-fluid"></a>
+
+
+
+                                        <a href="assets/img/c5.jpg" class="image-tile col-md-4" data-abc="true"><img
+                                                src="assets/img/c5.jpg" alt="image small" class="img-fluid"></a>
+
+
+
+                                        <a href="assets/img/c6.jpg" class="image-tile col-md-4" data-abc="true"><img
+                                                src="assets/img/c6.jpg" alt="image small" class="img-fluid"></a> -->
+
+
+
 
                                     </div>
+                                    <?php endif;?>
                                 </div>
                             </div>
                         </div>

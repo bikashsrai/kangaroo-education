@@ -18,7 +18,9 @@
                     <div class="blog_single">
                         <div class="blog_image">
                             <a href="blog_single.html" title=""> <?php 
+                             
                              $img_post1=get_field('image_post'); 
+                             $content_post1=get_field('content_post'); 
                              
                             if(!empty($img_post1)):?>
                                 <img class="img-fluid w-100" src="<?php echo esc_url($img_post1['url']);?>"
@@ -27,51 +29,14 @@
                         </div>
                         <div class="blog_content">
                             <div class="blog_date">
-                                <p>Posted On : Feb 14 2021 - <span><?php the_category('');?></span>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; <span>BY :
-                                        <?php echo get_the_author(); ?></span></p>
+                                <p>Posted On :<?php echo get_the_date();?>
+                                    -Category &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <span>By : <?php the_author();?></span>
+                                </p>
                             </div>
-                            <h3><a href="blog_single.html" title="">Career Plan V/S Psychological Aspect For Better
-                                    Score In IELTS</a></h3>
+                            <h3><a href="<?php the_permalink(); ?>" title=""><?php the_title();?></a></h3>
                             <p class="excert">
-                                Generally, what happens in a school life is we go to school because we fear of the
-                                teachers and parents but we do not know why do we have to study and go to school;
-                                similarly, we do not know the importance and application of education in life at that
-                                stage. But after the completion of grade 10, scenario completely changes, as we have to
-                                think of our future, interest and take decision wisely regarding what to study. Things
-                                even get tougher when you pass grade 12
-                                (10+2) because you are running out of time to set up the foundation for your ideal
-                                career. After10+2, Bachelor's degree or Master's degree, you may have interests for
-                                further studies abroad; so, you opt to join an educational
-                                consultancy for further preparation, as abroad study may require a standard English
-                                language test certificate such as IELTS, PTE or TOEFL, and sometimes other specialized
-                                or standardized tests like SAT, GMAT or GRE.
-                                Moreover, a standard English language test certificate either IELTS, TOEFL or PTE is
-                                sufficient, along with your academic certificate for the application. Amongst all the
-                                standard English tests, IELTS is the most popular
-                                one in Nepal. However, on the other hand, almost half of the students who try for abroad
-                                assume that IELTS is very difficult. So, in this essay, I will be addressing one
-                                particular aspect that is setting up a career
-                                goal before jumping into IELTS preparation, which help you to ace IELTS confidently.
-                            </p>
-                            <p>
-                                Well, I have an interesting experience over here that I would feel more relevant to
-                                share with you. When students come to visit me for counseling and preparing IELTS, I
-                                often ask them about their future plan. Almost half of the students give me a kind
-                                of worrying answer which I don’t know, let me first pass the IELTS then I will decide.
-                                In this case, you have already emphasized that IELTS is bigger than your goal and you
-                                have already made clear that IELTS is harder
-                                for you. In real world, your goal is way bigger than IELTS, and we should understand
-                                that IELTS is just a test that tests your English level. When students give such answer,
-                                it is likely that they are afraid of facing
-                                IELTS or they may have thought that IELTS is indeed very difficult. I accept that to get
-                                a high band score in IELTS is not easy but to get an acceptable score in a range of 6 to
-                                7 is not difficult either. If you have
-                                already spent more than 12 years in schools, then getting that range of IELTS score
-                                shouldn’t be tough. But we afraid a lot, we do not have a career goal and we do not have
-                                motivation, so the ultimate result is that
-                                we cannot get the desired grade in IELTS.
-                            </p>
+                                <?php echo $content_post1;?> </p>
                             <div class="quote-wrapper">
                                 <div class="quotes">
                                     To be successful in IELTS exam, we should be psychologically in a very strong state.
@@ -109,9 +74,10 @@
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4  ">
                     <div class="blog_right">
                         <div class="blog_search mb-4">
-                            <form class="d-flex">
-                                <input class="form-control rounded-0" type="search" placeholder="Search"
-                                    aria-label="Search">
+                            <form role="search" class="d-flex search-form" method="get"
+                                action="<?php echo esc_url(home_url('/')); ?>">
+                                <input class="form-control rounded-0" type="search" name="s"
+                                    value="<?php echo get_search_query(); ?>" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-get-started rounded-0 m-0 d-flex align-items-center"
                                     type="submit"><i class="fas fa-search me-2"></i> Search</button>
                             </form>
@@ -122,30 +88,34 @@
                                 <h3 class="title">Recent Post</h3>
                             </div>
                             <div class="new_post">
-                                <div class="single-post d-flex align-items-center">
-                                    <div class="recent_img">
-                                        <a href="" title=""><img src="assets/img/c2.jpg" alt="" class="img-fluid"></a>
-                                    </div>
-                                    <div class="post_title">
-                                        <a href="" title="">Tips For English Proficiency Test (IELTS And PTE)</a>
-                                        <div class="post-date">
-                                            <span>May 29, 2021</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php $args_blog_all=array(
+                                    'post_type'=>'post',
+                                    'posts_per_page'=>2,
+                                    'post_status'=>'publish',
+                                    'order'=>'DESC',       
+                                     );                      
+                                    $featured_blog_single=new WP_Query($args_blog_all);
+                                     if($featured_blog_single->have_posts()):
+                                         while($featured_blog_single->have_posts()):$featured_blog_single->the_post();
+                                ?>
 
                                 <div class="single-post d-flex align-items-center">
                                     <div class="recent_img">
-                                        <a href="" title=""><img src="assets/img/c1.jpg" alt="" class="img-fluid"></a>
+                                        <a href="<?php the_permalink();?>" title=""><img
+                                                src="<?php the_post_thumbnail_url();?>"
+                                                alt="<?php echo get_post_meta(get_post_thumbnail_id(),'_wp_attachment_image_alt',true);?>"
+                                                class="img-fluid"></a>
                                     </div>
                                     <div class="post_title">
-                                        <a href="" title="">Dealing With Cultural Shock Abroad – A Nepalese Student
-                                            Perspective</a>
+                                        <a href="<?php the_permalink();?>" title=""><?php the_title();?></a>
                                         <div class="post-date">
-                                            <span>May 29, 2021</span>
+                                            <span><?php the_date(); ?></span>
                                         </div>
                                     </div>
                                 </div>
+                                <?php endwhile;
+                          wp_reset_postdata();
+                         endif;?>
                             </div>
                         </div>
                         <div class="archives widget_single">
@@ -153,13 +123,39 @@
                                 <h3 class="title">All Categories</h3>
                             </div>
                             <div class="archives-items">
-                                <ul class="list-unstyled">
+                                <!-- <ul class="list-unstyled">
                                     <li><a href="" title="">Study Abroad </a></li>
                                     <li><a href="" title="">International Students</a></li>
                                     <li><a href="" title="">Tourist Visa</a></li>
                                     <li><a href="" title="">English Proficency</a></li>
                                     <li><a href="" title="">Visa</a></li>
                                     <li><a href="" title="">Others</a></li>
+                                </ul> -->
+                                <ul class="list-unstyled">
+                                    <?php
+                                        $args = array(
+                                            'type'                     => 'post',
+                                            'orderby'                  => 'name',
+                                            'order'                    => 'ASC',
+                                            'hide_empty'               => 1,
+                                            'hierarchical'             => 1,
+                                            'exclude'                  => '',
+                                            'include'                  => '',
+                                            'number'                   => '',
+                                            'taxonomy'                 => 'category',
+                                            'pad_counts'               => false );
+                                        $categories = get_categories($args);
+
+                                        echo '<ul>';
+
+                                        foreach ($categories as $category) {
+                                            $url = get_term_link($category);?>
+                                    <li><a href="<?php echo $url;?>"><?php echo $category->name; ?></a></li>
+                                    <?php
+                                        }
+
+                                        echo '</ul>';
+                                        ?>
                                 </ul>
                             </div>
                         </div>
@@ -169,20 +165,22 @@
                                 <h3 class="title">Popular Tags</h3>
                             </div>
                             <div class="tags-items">
-                                <ul class="list-unstyled">
-                                    <li><a href="" title="">485 Visa</a></li>
-                                    <li><a href="" title="">PTE</a></li>
-                                    <li><a href="" title="">Australian PR</a></li>
-                                    <li><a href="" title="">Accounting</a></li>
-                                    <li><a href="" title="">Others</a></li>
-
-                                </ul>
+                                <?php 
+                                $tags=get_tags();
+                                $html='<ul class="list-unstyled">';
+                                foreach ($tags as $tag){
+                                    $tag_link =get_tag_link($tag->term_id);
+                                    $html.="<li><a href='{$tag_link}' title='{$tag->name}' class='{$tag->slug}'>";
+                                    $html.="{$tag->name}</a></li>";
+                                }
+                                $html.='</ul>';
+                                echo $html;
+                                ?>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </section>

@@ -1,32 +1,7 @@
  <!-- main bosy part start -->
  <!-- breadcrumb -->
- <div class="aemi_breadcrumb"
-     style="background-image:url(<?php echo get_template_directory_uri().'/assets/himalayanbusiness/images/ban1.jpg';?>)">
-     <div class="container">
-         <div class="row">
-             <div class="col-md-12">
-                 <div class="breadcrumb_title ">
-                     <div class="page-title-heading">
-                         <h1 class="title">
-                             GAllery </h1>
-                     </div>
-
-                     <div class="breadcrumb-wrapper">
-                         <span>
-                             <a title="Homepage" href="index-2.html"><i class="fas fa-home"></i>&nbsp;&nbsp;Home</a>
-                         </span>
-                         <span class="seperator text-white">&nbsp; | &nbsp;</span>
-                         <span class="text-theme">
-                             Photo </span>
-                     </div>
-                 </div>
-             </div>
-
-         </div>
-
-     </div>
-
- </div>
+ <?php require get_template_directory() . '/bannersec.php';?>
+ yyyyy
 
  <!-- gallery section starts -->
  <section class="pt-50">
@@ -36,8 +11,8 @@
                  <?php $args_photo=array(
                  
                             'post_type'=>'page',
-                            'post_parent' => 730,
-                            'posts_per_page'=>'4',
+                            'post_parent' => 803,
+                            'posts_per_page'=>'16',
                             'post_status'=>'publish',
                             'order'=>'DESC',
                             'orderby'=>'date'
@@ -50,11 +25,10 @@
                     ?>
                  <div class="col-md-3">
                      <div class="card">
-                         <img src="<?php  echo the_thumbnail_url();?>" class="card-img-top" alt="...">
+                         <img src="<?php the_post_thumbnail_url();?>" class="card-img-top" alt="...">
                          <div class="card-body">
                              <h6 class="card-title text-dark"><a href="<?php the_permalink();?>"
-                                     class="text-dark">Kangaroo
-                                     Scholarship Week 2020</a></h6>
+                                     class="text-dark"><?php the_title();?></a></h6>
                              <div class="d-flex align-items-center justify-content-between">
                                  <p class="card-text">Photo</p>
 
@@ -73,3 +47,71 @@
          </div>
      </div>
  </section>
+
+ <!-- gallery section starts -->
+ <!-- <section class="pt-50">
+     <div class="imagegallery">
+         <div class="container">
+             <div class="row">
+                 <div class="col-md-3">
+                     <div class="card">
+                         <img src="assets/img/i1.jpg" class="card-img-top" alt="...">
+                         <div class="card-body">
+                             <h6 class="card-title text-dark"><a href="photo_single.html" class="text-dark">Kangaroo
+                                     Scholarship Week 2020</a></h6>
+                             <div class="d-flex align-items-center justify-content-between">
+                                 <p class="card-text">Photo</p>
+
+                             </div>
+
+                         </div>
+                     </div>
+                 </div>
+
+                 <div class="col-md-3">
+                     <div class="card">
+                         <img src="assets/img/c2.jpg" class="card-img-top" alt="...">
+                         <div class="card-body">
+                             <h6 class="card-title text-dark"><a href="photo_single.html" class="text-dark">Mega
+                                     Australia Education Fair</a></h6>
+                             <div class="d-flex align-items-center justify-content-between">
+                                 <p class="card-text">Photo</p>
+
+                             </div>
+
+                         </div>
+                     </div>
+                 </div>
+
+                 <div class="col-md-3">
+                     <div class="card">
+                         <img src="assets/img/c1.jpg" class="card-img-top" alt="...">
+                         <div class="card-body">
+                             <h6 class="card-title text-dark"><a href="photo_single.html" class="text-dark">Kangaroo
+                                     Education Foundation Freshers' Fest</a></h6>
+                             <div class="d-flex align-items-center justify-content-between">
+                                 <p class="card-text">Photo</p>
+
+                             </div>
+
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-md-3">
+                     <div class="card">
+                         <img src="assets/img/c3.jpg" class="card-img-top" alt="...">
+                         <div class="card-body">
+                             <h6 class="card-title text-dark"><a href="photo_single.html" class="text-dark">Kangaroo
+                                     Education Fair - All Nepal Roadshow</a></h6>
+                             <div class="d-flex align-items-center justify-content-between">
+                                 <p class="card-text">Photo</p>
+
+                             </div>
+
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </section> -->

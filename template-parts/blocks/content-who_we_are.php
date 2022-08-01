@@ -71,7 +71,7 @@ if($enable2_who){
                         <div class="height_manage bg_<?php echo $bak4_color_who ;?> text-center height_190">
                             <div class="p_a10">
                                 <div class="icon font_55 white ">
-                                    <span class="far fa-<?php echo $icon4_who;?>"></span>
+                                    <span class="fa fa-<?php echo $icon4_who;?>"></span>
                                 </div>
                                 <h2 class="white font_21 font_weight900 text-uppercase"><?php echo $title4_who ;?></h2>
                             </div>

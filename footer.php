@@ -11,20 +11,29 @@
 
 ?>
 
-<!-- newsletter -->
-<section class="pb-50 pt-50">
-    <div class="container">
-        <div class="req_img p-4">
 
-            <div class="row justify-content-center  align-items-center">
+<!-- associate partners section ends -->
+<!-- newsletter -->
+<section class="pb-50">
+    <div class="container text-center">
+        <div class="req_img p-4 ">
+
+            <div class="row align-items-center justify-content-center">
                 <div class="col-md-10">
                     <p>Get The Latest Notification For Our Events, Seminars &amp; Offers.</p>
-                    <form class="d-flex">
-                        <input class="form-control" type="search" placeholder="Subscribe for Newsletter..."
-                            aria-label="Search" spellcheck="false" data-ms-editor="true">
-                        <button class="btn btn-outline-success p-60 rounded-0 search_btn"
-                            type="submit">Subscribe</button>
-                    </form>
+                    <div class="row justify-content-center  align-items-center g-0">
+                        <div class="col-md-9">
+                            <form>
+                                <input class="form-control" type="search" placeholder="Subscribe for Newsletter..."
+                                    aria-label="Search" spellcheck="false" data-ms-editor="true">
+
+                            </form>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-outline-success p-60 rounded-0 search_btn w-100"
+                                type="submit">Subscribe</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -68,6 +77,82 @@
                             <a class="btn-get-started bg-white
                                  text-theme rounded-3   contactbtn fw-bold text-theme" href="contactus.html">Let's Talk
                                 <i class="flaticon-long-right-arrow"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ouroffices nationaloffice bg-light  p-4 rounded-3">
+                <div class="row">
+                    <div class="col-md-6 border-end">
+                        <?php
+                        $office_type1=get_field('office_location_name_1','option'); 
+                        ?>
+                        <div class=" t_left text-center">
+                            <h4 class="cof"><?php echo $office_type1;?></h4>
+
+                        </div>
+
+                        <div class="row">
+                            <?php 
+                        
+                        if(have_rows('new_footer_section_rep','option')):
+                            while(have_rows('new_footer_section_rep','option')):the_row();
+                            $location_name_office=get_sub_field('place_location');
+                            
+                        ?>
+                            <div class="col-md-6">
+                                <h5> <?php echo $location_name_office;?></h5>
+                            </div>
+                            <?php endwhile;
+                            endif;?>
+                            <!-- <div class="col-md-6">
+                                <h5>Pokhara Office</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5> Chitwan </h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Ithari</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Butwal</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Nepalgunj</h5>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <?php
+                        $office_type2=get_field('office_type_2','option');
+                        ?>
+                        <div class=" t_left text-center">
+                            <h4 class="cof"><?php echo $office_type2;?></h4>
+
+
+                        </div>
+
+
+
+                        <div class="row">
+                            <?php 
+                        if(have_rows('type_office_rep','option')):
+                            while(have_rows('type_office_rep','option')):the_row();
+                            $office_location2=get_sub_field('office__location_name');
+                        ?>
+                            <div class="col-md-6">
+                                <h5><?php echo $office_location2;?></h5>
+                            </div>
+                            <?php endwhile;
+                            endif;
+                            ?>
+                            <!-- <div class="col-md-6">
+                                <h5>Australia(Adeliade)</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5> Australia(Tasmania) </h5>
+                            </div> -->
+
                         </div>
                     </div>
                 </div>
@@ -220,9 +305,13 @@
         </div>
         <div class="offcanvas-body bg-theme1">
             <div class="reply-area">
-                <h3 class="text-white mb-3 border-bottom pb-3"> Franchise With Us</h3>
+                <h3 class="text-white mb-3 border-bottom pb-3"> Franchise With Us!!!</h3>
                 <form id="contact-form" action="#">
-                    <div class="row">
+                    <!-- Contact form for franchis with us -->
+                    <?php 
+                        $form_franchis=get_field('form_for_franchis');
+                        echo do_shortcode($form_franchis);?>
+                    <!-- <div class="row">
                         <div class="col-md-12">
                             <label for="Name">Name</label>
                             <input type="text" name="con_name" spellcheck="false" data-ms-editor="true">
@@ -258,7 +347,7 @@
                     </div>
                     <div class="button">
                         <a href="#" class="slider-btn">Submit<i class="fas fa-long-arrow-alt-right ms-2"></i></a>
-                    </div>
+                    </div> -->
                 </form>
             </div>
         </div>

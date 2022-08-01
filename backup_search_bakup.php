@@ -24,15 +24,35 @@ get_header();
     </header><!-- .page-header -->
 
     <?php
-			
+			get_search_form();
+			/* Start the Loop */
+			while ( have_posts() ) :
+				the_post();
+
+				/**
+				 * Run the loop for the search to output the results.
+				 * If you want to overload this in a child theme then include a file
+				 * called content-search.php and that will be used instead.
+				 */
 				get_template_part( 'template-parts/content', 'search' );
 
-		
+			endwhile;
+			the_posts_pagination(
+				array(
+					'pre_text'=>'Previous',
+					'next_text'=>'Next',
+				)
+			);
+
 			the_posts_navigation();
 
-		
+		else :
+
+			get_template_part( 'template-parts/content', 'none' );
+
+		endif;
 		?>
-    <?php endif;?>
+
 </main><!-- #main -->
 
 <?php

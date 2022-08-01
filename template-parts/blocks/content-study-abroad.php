@@ -114,7 +114,7 @@
                                 </div> -->
                             </form>
                         </div>
-                        <!-- banner -->
+                        <!-- banner form  -->
                         <div class="Kef_side_banner mt-4">
                             <div class="Kef_side_box"
                                 style="background-image:url('<?php echo esc_url( $bak3_img_cfm['url'] ); ?>')">
@@ -148,8 +148,9 @@
 										?>
 
                                     <a href="<?php echo esc_url( $link_url ); ?>"
-                                        target="<?php echo esc_attr( $link_target ); ?> class=" Kef_btn
-                                        btn-one"><?php echo esc_html( $link_title ); ?><i class="flaticon-next"></i></a>
+                                        target="<?php echo esc_attr( $link_target ); ?>"
+                                        class=" Kef_btn btn-one"><?php echo esc_html( $link_title ); ?><i
+                                            class="flaticon-next"></i></a>
                                     <?php endif; ?>
                                 </div>
                             </div>
@@ -167,25 +168,20 @@
                         ?>
                 <div class="col-md-12 bg-light p-3">
                     <div class="row">
-
                         <div class="col-md-5">
                             <?php
-																if ( ! empty(   $img_3_stdy ) ): ?>
+							if ( ! empty(   $img_3_stdy ) ): ?>
                             <img src="<?php echo esc_url(   $img_3_stdy['url'] ); ?>"
                                 alt="<?php echo esc_attr(   $img_3_stdy['alt'] ); ?>" width="100%" height="350">
                             <?php endif; ?>
-
                         </div>
                         <div class="col-md-7"><?php echo $titile_3_stdy;?></h4>
                             <p><?php echo $des_3_stdy;?></p>
                         </div>
-
                     </div>
                 </div>
                 <?php endwhile;
                     endif;?>
-
-
                 <?php 
                         if(have_rows('study_details_info_stdy')):
                             while(have_rows('study_details_info_stdy')):the_row();

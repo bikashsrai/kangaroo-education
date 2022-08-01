@@ -30,10 +30,12 @@ get_header();?>
                     </div>
                     <div class="col-md-5">
                         <div class="align-items-center flex-nowrap me-3 me-sm-4 pb-3">
+
+
                             <label
                                 class="text-dark fs-6 opacity-75 text-nowrap me-2 d-none d-sm-block">INSTITUTION</label>
-                            <input class="form-control" type="search" placeholder="Search an Institution..."
-                                aria-label="Search">
+                            <input class="form-control" type="search" value="<?php echo get_search_query(); ?>"
+                                placeholder="Search an Institution..." aria-label="Search">
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -54,14 +56,14 @@ get_header();?>
             <div class="row" id="FilterContainer">
                 <?php
                 $institution_selection=array(
-                    'post_type'=>'institution',
-                    'posts_per_page'=>'4',
+                    'post_type'=>'Institution',
+                    'posts_per_page'=>'12',
                     'post_status'=>'publish',
                     'orderby'=>'date'
                 );
 
-                $institution_featured= new WP_Query($institution_selection);
-                if($institution_featured->have_posts()):
+                $institution_featured= new WP_Query($institution_selection);?>
+                <?php if($institution_featured->have_posts()):
                     while($institution_featured->have_posts()):$institution_featured->the_post();
 
                               
@@ -73,7 +75,7 @@ get_header();?>
                ?>
                 <div class="col-md-3 australia">
 
-                    <a href="<?php echo get_the_permalink(get_the_ID());?>">
+                    <a href="<?php echo get_the_permalink();?>">
                         <div class="brands_item d-flex flex-column
                                 justify-content-center">
                             <img src="<?php the_post_thumbnail_url();?>" alt="...">

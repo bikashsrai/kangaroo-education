@@ -7,28 +7,37 @@
  ?>
 <?php require get_template_directory() . '/bannersec.php';?>
 <!-- Milestone info -->
+<!-- Milestone info -->
 <section class="pt-50">
     <div class="timeline">
         <div class="container">
+            <?php 
+            if(have_rows('year_main_rep')):
+            ?>
+            <?php while(have_rows('year_main_rep')):the_row();
+                        $nowyear=get_sub_field('year__time');?>
             <div class="row">
+
+
                 <div class="col-lg-12">
                     <div class="timeline-container">
+
                         <div class="timeline-end">
-                            <p>Now</p>
+                            <p> <?php echo $nowyear;?></p>
                         </div>
                         <?php 
-                        if(have_rows('milestone_setup')):
-                        while(have_rows('milestone_setup')):the_row();
-                        $timeyear=get_sub_field('timeline_year_milestone_1');
-                        $des_year=get_sub_field('timeline_text');
-                        $timeyear2=get_sub_field('timeline__year_2');
-                        $timedes2=get_sub_field('timeline_description2');
-                        ?>
+                        if(have_rows('timeline_activity_rep')):
+                        while(have_rows('timeline_activity_rep')):the_row();
+                        $year1=get_sub_field('year_timeline_1');
+                        $year2=get_sub_field('year_timeline_2');
+                        $timeline_heading1=get_sub_field('timeline_heading_1');
+                        $timeline_heading2=get_sub_field('timeline_heading_2');
+                         ?>
                         <div class="timeline-continue">
                             <div class="row timeline-right">
                                 <div class="col-md-6">
                                     <p class="timeline-date">
-                                        <?php echo $timeyear;?>
+                                        <?php echo $year1;?>
                                     </p>
                                 </div>
                                 <div class="col-md-6">
@@ -37,7 +46,7 @@
                                             <i class="fa fa-business-time"></i>
                                         </div>
                                         <div class="timeline-text">
-                                            <h3><?php echo $des_year;?></h3>
+                                            <h3><?php echo $timeline_heading1;?></h3>
                                         </div>
                                     </div>
                                 </div>
@@ -45,7 +54,8 @@
                             <div class="row timeline-left">
                                 <div class="col-md-6 d-md-none d-block">
                                     <p class="timeline-date">
-                                        <?php echo $timeyear2;?>
+                                        <?php echo $year2;
+                                       ?>
                                     </p>
                                 </div>
                                 <div class="col-md-6">
@@ -54,7 +64,7 @@
                                             <i class="fa fa-business-time"></i>
                                         </div>
                                         <div class="timeline-text">
-                                            <h3> <?php echo $timedes2;?></h3>
+                                            <h3><?php echo $timeline_heading2;?></h3>
                                         </div>
                                         <div class="timeline-icon d-md-block d-none">
                                             <i class="fa fa-business-time"></i>
@@ -64,13 +74,227 @@
                                 <?php endwhile;
                                 endif;?>
 
-                                <div class="timeline-start">
-                                    <p>Launch 2007</p>
+                                <div class="col-md-6 d-md-block d-none">
+                                    <p class="timeline-date">
+                                        <?php echo $year2;?>
+                                    </p>
                                 </div>
 
+                                <!-- <div class="row">
+                                <div class="col-12">
+                                    <div class="timeline-year">
+                                        <p>2020</p>
+                                    </div>
+                                </div>
                             </div>
+
+                            <div class="row timeline-right">
+                                <div class="col-md-6">
+                                    <p class="timeline-date">
+                                        2019
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="timeline-box">
+                                        <div class="timeline-icon">
+                                            <i class="fa fa-business-time"></i>
+                                        </div>
+                                        <div class="timeline-text">
+                                            <h3>British Council Trained Agent Certification</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row timeline-left">
+                                <div class="col-md-6 d-md-none d-block">
+                                    <p class="timeline-date">
+                                        2018
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="timeline-box">
+                                        <div class="timeline-icon d-md-none d-block">
+                                            <i class="fa fa-business-time"></i>
+                                        </div>
+                                        <div class="timeline-text">
+                                            <h3>Certified as Education New Zealand's Recognized Agency</h3>
+                                        </div>
+                                        <div class="timeline-icon d-md-block d-none">
+                                            <i class="fa fa-business-time"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 d-md-block d-none">
+                                    <p class="timeline-date">
+                                        2018
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row timeline-right">
+                                <div class="col-md-6">
+                                    <p class="timeline-date">
+                                        2017
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="timeline-box">
+                                        <div class="timeline-icon">
+                                            <i class="fa fa-business-time"></i>
+                                        </div>
+                                        <div class="timeline-text">
+                                            <h3>Sydney, Australia Onshore Office Started</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row timeline-left">
+                                <div class="col-md-6 d-md-none d-block">
+                                    <p class="timeline-date">
+                                        2015
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="timeline-box">
+                                        <div class="timeline-icon d-md-none d-block">
+                                            <i class="fa fa-business-time"></i>
+                                        </div>
+                                        <div class="timeline-text">
+                                            <h3>Birtamode, Butwal Branch Expansion</h3>
+                                        </div>
+                                        <div class="timeline-icon d-md-block d-none">
+                                            <i class="fa fa-business-time"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 d-md-block d-none">
+                                    <p class="timeline-date">
+                                        2015
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="timeline-year">
+                                        <p>2015</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row timeline-right">
+                                <div class="col-md-6">
+                                    <p class="timeline-date">
+                                        2014
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="timeline-box">
+                                        <div class="timeline-icon">
+                                            <i class="fa fa-business-time"></i>
+                                        </div>
+                                        <div class="timeline-text">
+                                            <h3>Portfolio Expansion at Europe, Canada & USA</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row timeline-left">
+                                <div class="col-md-6 d-md-none d-block">
+                                    <p class="timeline-date">
+                                        2012
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="timeline-box">
+                                        <div class="timeline-icon d-md-none d-block">
+                                            <i class="fa fa-business-time"></i>
+                                        </div>
+                                        <div class="timeline-text">
+                                            <h3>Recognized as New Zealand Specialist Agent by ENZ</h3>
+                                        </div>
+                                        <div class="timeline-icon d-md-block d-none">
+                                            <i class="fa fa-business-time"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 d-md-block d-none">
+                                    <p class="timeline-date">
+                                        2012
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row timeline-right">
+                                <div class="col-md-6">
+                                    <p class="timeline-date">
+                                        2010
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="timeline-box">
+                                        <div class="timeline-icon">
+                                            <i class="fa fa-business-time"></i>
+                                        </div>
+                                        <div class="timeline-text">
+                                            <h3>Portfolio Expansion New Zealand & UK</h3>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row timeline-left">
+                                <div class="col-md-6 d-md-none d-block">
+                                    <p class="timeline-date">
+                                        2008
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="timeline-box">
+                                        <div class="timeline-icon d-md-none d-block">
+                                            <i class="fa fa-business-time"></i>
+                                        </div>
+                                        <div class="timeline-text">
+                                            <h3>Pokhara & Chitwan Office Expansion</h3>
+                                        </div>
+                                        <div class="timeline-icon d-md-block d-none">
+                                            <i class="fa fa-business-time"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 d-md-block d-none">
+                                    <p class="timeline-date">
+                                        2008
+                                    </p>
+                                </div>
+                            </div>
+                        </div> -->
+
+                            </div>
+
                         </div>
+
                     </div>
+                    <?php endwhile;
+                              
+                    endif;?>
+
                 </div>
+
             </div>
+            <!-- <div class="timeline-start">
+                <p>Launch</p>
+            </div>
+            <div class="timeline-launch">
+                <div class="timeline-box">
+                    <div class="timeline-text">
+                        <h3>Launched our company on 2007</h3>
+
+                    </div>
+                </div> -->
+        </div>
 </section>

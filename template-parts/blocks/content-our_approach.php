@@ -54,15 +54,15 @@ if($enable2_approach){
                     if(have_rows('enable_approach_info')):
                         while(have_rows('enable_approach_info')):the_row();
                          $bak_color=get_sub_field('background_color_info');
-                         $icon2_app=get_sub_field('title_two');
-                         $title2_app=get_sub_field('description_meassage')?:'Title';
+                         $icon2_app=get_sub_field('icon_approach_info');
+                         $title2_app=get_sub_field('title_our_approach_info')?:'Title';
            
                     ?>
                     <div class="col-lg-4  col-sm-12 col-xs-4 p_lr5 m_b10">
                         <div class="height_manage bg_<?php echo $bak_color;?> text-center height_190">
                             <div class="p_a10">
                                 <div class="icon font_55 white ">
-                                    <span class="far fa-<?php echo $icon2_app;?>"></span>
+                                    <span class="fa fa-<?php echo $icon2_app;?>"></span>
                                 </div>
                                 <h2 class="white font_21 font_weight900 text-uppercase"><?php echo $title2_app;?></h2>
 
@@ -127,7 +127,7 @@ if($enable_target){
                 <div class="card c1">
                     <div class="card-body">
                         <h5 class="card-title text-theme"><?php echo $title4_work;?></h5>
-                        <p class="card-text"><?php echo $title4_work;?></p>
+                        <p class="card-text"><?php echo $des4_work;?></p>
 
                     </div>
                 </div>

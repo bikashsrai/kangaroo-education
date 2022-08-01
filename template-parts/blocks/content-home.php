@@ -5,7 +5,7 @@
  * @packages kangarooeducation
  * 
  */
-get_header();
+// get_header();
 ?>
 
 
@@ -20,85 +20,87 @@ get_header();
 <!-- slider section starts -->
 <!--hero section start-->
 
-<?php $enable_banner=get_field('enable__banner_section');
-if($enable_banner){?>
+
 <div class="rev_slider_wrapper">
-
     <div id="rev_slider_1" class="rev_slider rev_slider-1">
-
         <!-- BEGIN SLIDES LIST -->
-
         <ul>
-            <?php 
-               if(have_rows('banner_section_rep')):
-                while(have_rows('banner_section_rep')):the_row();
-                $img_slider1=get_sub_field('image_slide_banner');
-                $title_ban=get_sub_field('title_banner_1');
-                $country_name=get_sub_field('country_name_destination');
-                $sub_title=get_sub_field('title_sub_banner');
-                $link_banner=get_sub_field('link__contact_banner');
-             ?>
+            <?php $enable_banner=get_field('enable__banner_section');
+              if($enable_banner){
+                $img_slider_ban_1=get_field('slider_image_ban_1');
+                $heading_slider_ban_1=get_field('heading_first_ban_1');
+                $coontry_name_ban_1=get_field('heading__country_ban_1');
+                $link_slider_ban_1=get_field('link_ban_1');
+              ?>
             <li data-index="rs-280" data-transition="zoomout" data-slotamount="default" data-easein="Power4.easeInOut"
                 data-easeout="Power4.easeInOut" data-masterspeed="2000" data-rotate="0" data-saveperformance="off"
                 data-title="01" data-description="">
                 <div class="slider-overlay"></div>
 
-
                 <?php 
-                if(!empty(  $img_slider1)):?>
-                <img src="<?php echo esc_url($img_slider1['url']);?>" alt="<?php $img_slider1['alt'];?>"
-                    class="rev-slidebg" data-bgparallax="3" data-bgposition="center center" data-duration="20000"
-                    data-ease="Linear.easeNone" data-kenburns="on" data-no-retina="" data-offsetend="0 0"
-                    data-offsetstart="0 0" data-rotateend="0" data-rotatestart="0" data-scaleend="100"
-                    data-scalestart="140">
-
-                <?php endif;?>
-
-
+                   if(!empty( $img_slider_ban_1)):?>
+                <img src="<?php echo esc_url($img_slider_ban_1['url']);?>"
+                    alt="<?php echo esc_attr( $img_slider_ban_1['alt']); ?>" class="rev-slidebg" data-bgparallax="3"
+                    data-bgposition="center center" data-duration="20000" data-ease="Linear.easeNone" data-kenburns="on"
+                    data-no-retina="" data-offsetend="0 0" data-offsetstart="0 0" data-rotateend="0"
+                    data-rotatestart="0" data-scaleend="100" data-scalestart="140" />
+                <?php endif; ?>
                 <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
                 <!-- BEGIN BASIC TEXT LAYER -->
                 <!-- LAYER NR. 1 -->
-                <div class="tp-caption NotGeneric-Title   tp-resizeme" id="slide-3045-layer-1"
+                <div class="tp-caption NotGeneric-Title tp-resizeme" id="slide-3045-layer-1"
                     data-x="['left','left','center','middle']" data-hoffset="['70','70','70','70']"
                     data-y="['middle','middle','middle','middle']" data-voffset="['-135','0','0','0']"
                     data-fontsize="['56','56','56','56']" data-width="none" data-height="none" data-whitespace="nowrap"
                     data-type="text" data-responsive_offset="on"
                     data-frames='[{"from":"x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1000,"split":"chars","splitdelay":0.05,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
                     data-textAlign="['left','left','left','left']" data-paddingtop="[10,10,10,10]"
-                    data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]"
-                    style="z-index: 2; white-space: nowrap;font-family: 'Poppins', sans-serif; text-transform: none;">
-                    <?php echo $title_ban;?>
+                    data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]" style="
+                z-index: 2;
+                white-space: nowrap;
+                font-family: 'Poppins', sans-serif;
+                text-transform: none;
+              ">
+                    <?php echo $heading_slider_ban_1;?>
                 </div>
 
                 <!-- LAYER NR. 2 -->
-                <div class="tp-caption NotGeneric-Title   tp-resizeme" id="slide-3045-layer-2"
+                <div class="tp-caption NotGeneric-Title tp-resizeme" id="slide-3045-layer-2"
                     data-x="['left','left','left','left']" data-hoffset="['70','70','70','70']"
                     data-y="['middle','middle','middle','middle']" data-voffset="['-70','0','0','0']"
                     data-fontsize="['75','75','75','75']" data-lineheight="['90','90','90','90']" data-width="none"
                     data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on"
                     data-frames='[{"from":"x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1000,"split":"chars","splitdelay":0.05,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
                     data-textAlign="['left','left','left','left']" data-paddingtop="[10,10,10,10]"
-                    data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]"
-                    style="z-index: 3; white-space: nowrap;font-family: 'Poppins', sans-serif; text-transform: none;">
-                    <?php echo $country_name;?>
+                    data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]" style="
+                z-index: 3;
+                white-space: nowrap;
+                font-family: 'Poppins', sans-serif;
+                text-transform: none;
+              ">
+                    <?php echo $coontry_name_ban_1;?>
                 </div>
 
                 <!-- LAYER NR. 3 -->
-                <div class="tp-caption   tp-resizeme" id="slide-3045-layer-3" data-x="['left','left','middle','middle']"
+                <div class="tp-caption tp-resizeme" id="slide-3045-layer-3" data-x="['left','left','middle','middle']"
                     data-hoffset="['70','70','70','70']" data-y="['middle','middle','middle','middle']"
                     data-voffset="['-10','0','0','0']" data-fontsize="['18','18','18','18']"
                     data-lineheight="['68','68','68','50']" data-width="none" data-height="none"
                     data-whitespace="nowrap" data-type="text" data-responsive_offset="on"
                     data-frames='[{"from":"x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1000,"split":"chars","splitdelay":0.05,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
                     data-textAlign="['left','left','left','center']" data-paddingtop="[10,10,10,10]"
-                    data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]"
-                    style="z-index: 5; white-space: nowrap;font-family: 'Poppins', sans-serif; text-transform: none; color: #ffffff;">
-                    <?php echo $sub_title;?>
+                    data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]" style="
+                z-index: 5;
+                white-space: nowrap;
+                font-family: 'Poppins', sans-serif;
+                text-transform: none;
+                color: #ffffff;
+              ">
+                    Study Abroad
                 </div>
 
-
                 <!-- LAYER NR. 5 -->
-                <div class="tp-caption Newspaper-Button rev-btn " id="slide-1687-layer-5"
+                <div class="tp-caption Newspaper-Button rev-btn" id="slide-1687-layer-5"
                     data-x="['left','left','left','left']" data-hoffset="['70','70','70','70']"
                     data-y="['middle','middle','middle','middle']" data-voffset="['100','0','0','0']" data-width="none"
                     data-height="none" data-whitespace="nowrap" data-fontsize="['16','16','16','16']" data-type="button"
@@ -106,36 +108,151 @@ if($enable_banner){?>
                     data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(0, 0, 0, 1.00);bg:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
                     data-textAlign="['left','left','left','left']" data-paddingtop="[15,15,15,15]"
                     data-paddingright="[30,30,30,30]" data-paddingbottom="[15,15,15,15]"
-                    data-paddingleft="[30,30,30,30]"
-                    style="z-index: 8; font-weight: 600; white-space: nowrap;font-family: 'Poppins', sans-serif; outline:none;box-shadow:none;border:none; background:#ffffff; color:#3f77fa; cursor:pointer;letter-spacing: 0; border-radius: 5px;">
+                    data-paddingleft="[30,30,30,30]" style="
+                z-index: 8;
+                font-weight: 600;
+                white-space: nowrap;
+                font-family: 'Poppins', sans-serif;
+                outline: none;
+                box-shadow: none;
+                border: none;
+                background: #ffffff;
+                color: #3f77fa;
+                cursor: pointer;
+                letter-spacing: 0;
+                border-radius: 5px;
+              ">
                     <?php 
                                           
-                       if($link_banner):
+                       if($link_slider_ban_1):
                                                    
-	                    $link_url = $link_banner['url'];
-	                    $link_title = $link_banner['title'];
-	                    $link_target = $link_banner['target'] ? $link_banner['target'] : '_self';?>
+	                    $link_url = $link_slider_ban_1['url'];
+	                    $link_title = $link_slider_ban_1['title'];
+	                    $link_target = $link_slider_ban_1['target'] ? $link_slider_ban_1['target'] : '_self';?>
 
                     <a href="<?php echo esc_url( $link_url ); ?>"
                         target="<?php echo esc_attr( $link_target ); ?>"><span><?php echo esc_html( $link_title ); ?></span></a>
                     <?php endif; ?>
                 </div>
+            </li><?php }?>
 
+            <?php
+             
+                $img_slider_ban_2=get_field('image_slider_ban_2');
+                $img_thumbslider_ban_2=get_field('thumb_image_slider_ban_2');
+                $heading_slider_ban_2=get_field('heading_first_slider_ban_2');
+                $coontry_name_ban_2=get_field('heading_country_ban_2');
+                $link_slider_ban_2=get_field('link_slider_ban_2');
+              ?>
+            <li data-index="rs-20" data-transition="zoomin" data-slotamount="7" data-easein="Power4.easeInOut"
+                data-easeout="Power4.easeInOut" data-masterspeed="2000"
+                data-thumb="<?php echo get_template_directory_uri().'/assets/images/home/slide-10.jpg';?>"
+                data-rotate="0" data-saveperformance="off" data-title="03" data-description="">
+                <div class="slider-overlay"></div>
+                <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
+                <?php 
+                   if(!empty( $img_slider_ban_2)):?>
+                <img src="<?php echo esc_url($img_slider_ban_2['url']);?>"
+                    alt="<?php echo esc_attr( $img_slider_ban_2['alt']); ?>" data-bgposition="center center"
+                    data-kenburns="on" data-duration="10000" data-ease="Linear.easeNone" data-scalestart="100"
+                    data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 -500"
+                    data-offsetend="0 500" data-bgparallax="10" class="rev-slidebg" data-no-retina />
+                <?php endif;?>
+                <!-- BEGIN BASIC TEXT LAYER -->
+                <!-- LAYER NR. 1 -->
+                <div class="tp-caption NotGeneric-Title tp-resizeme" id="slide-3045-layer-5"
+                    data-x="['left','left','left','left']" data-hoffset="['70','70','70','70']"
+                    data-y="['middle','middle','middle','middle']" data-voffset="['-135','0','0','0']"
+                    data-fontsize="['56','56','56','56']" data-width="none" data-height="none" data-whitespace="nowrap"
+                    data-type="text" data-responsive_offset="on"
+                    data-frames='[{"from":"x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1000,"split":"chars","splitdelay":0.05,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                    data-textAlign="['left','left','left','left']" data-paddingtop="[10,10,10,10]"
+                    data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]" style="
+                z-index: 2;
+                white-space: nowrap;
+                font-family: 'Poppins', sans-serif;
+              ">
+                    <?php echo $heading_slider_ban_2;?>
+                </div>
+
+                <!-- LAYER NR. 2 -->
+                <div class="tp-caption NotGeneric-Title tp-resizeme" id="slide-3045-layer-8"
+                    data-x="['left','left','left','left']" data-hoffset="['70','70','70','70']"
+                    data-y="['middle','middle','middle','middle']" data-voffset="['-70','0','0','0']"
+                    data-fontsize="['75','75','75','75']" data-lineheight="['90','90','90','90']" data-width="none"
+                    data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on"
+                    data-frames='[{"from":"x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1000,"split":"chars","splitdelay":0.05,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                    data-textAlign="['left','left','left','left']" data-paddingtop="[12,12,12,12]"
+                    data-paddingright="[0,0,0,0]" data-paddingbottom="[12,12,12,12]" data-paddingleft="[0,0,0,0]" style="
+                z-index: 3;
+                white-space: nowrap;
+                font-family: 'Poppins', sans-serif;
+                text-transform: none;
+              ">
+                    <?php echo $coontry_name_ban_2;?>
+                </div>
+
+                <!-- LAYER NR. 3 -->
+                <div class="tp-caption tp-resizeme" id="slide-3045-layer-11" data-x="['left','left','left','left']"
+                    data-hoffset="['70','70','70','70']" data-y="['middle','middle','middle','middle']"
+                    data-voffset="['-10','0','0','0']" data-fontsize="['18','18','18','18']"
+                    data-lineheight="['68','68','68','50']" data-width="none" data-height="none"
+                    data-whitespace="nowrap" data-type="text" data-responsive_offset="on"
+                    data-frames='[{"from":"x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1000,"split":"chars","splitdelay":0.05,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                    data-textAlign="['left','left','left','left']" data-paddingtop="[10,10,10,10]"
+                    data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]" style="
+                z-index: 5;
+                white-space: nowrap;
+                font-family: 'Poppins', sans-serif;
+                text-transform: none;
+                color: #ffffff;
+              ">
+                    Study Abroad
+                </div>
+
+                <!-- LAYER NR. 5 -->
+                <div class="tp-caption Newspaper-Button rev-btn" id="slide-1687-layer-6"
+                    data-x="['left','left','left','left']" data-hoffset="['70','70','70','70']"
+                    data-y="['middle','middle','middle','middle']" data-voffset="['100','0','0','0']" data-width="none"
+                    data-height="none" data-whitespace="nowrap" data-fontsize="['16','16','16','16']" data-type="button"
+                    data-responsive_offset="on" data-responsive="on"
+                    data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(0, 0, 0, 1.00);bg:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
+                    data-textAlign="['left','left','left','left']" data-paddingtop="[15,15,15,15]"
+                    data-paddingright="[30,30,30,30]" data-paddingbottom="[15,15,15,15]"
+                    data-paddingleft="[30,30,30,30]" style="
+                z-index: 8;
+                font-weight: 600;
+                white-space: nowrap;
+                font-family: 'Poppins', sans-serif;
+                outline: none;
+                box-shadow: none;
+                border: none;
+                background: #ffffff;
+                color: #3f77fa;
+                cursor: pointer;
+                letter-spacing: 0;
+                border-radius: 5px;
+              ">
+                    <?php 
+                                          
+                       if($link_slider_ban_2):
+                                                   
+	                    $link_url = $link_slider_ban_2['url'];
+	                    $link_title = $link_slider_ban_2['title'];
+	                    $link_target = $link_slider_ban_2['target'] ? $link_slider_ban_2['target'] : '_self';?>
+
+                    <a href="<?php echo esc_url( $link_url ); ?>"
+                        target="<?php echo esc_attr( $link_target ); ?>"><span><?php echo esc_html( $link_title ); ?></span></a>
+                    <?php endif; ?>
+                </div>
             </li>
-            <?php endwhile;
-            endif;
-            ?>
-
         </ul>
-
-
         <!-- END SLIDES LIST -->
-
     </div>
-
     <!-- END SLIDER CONTAINER -->
 </div>
-<?php }?>
+<!-- END SLIDER CONTAINER WRAPPER -->
+
 <!-- END SLIDER CONTAINER WRAPPER -->
 <!-- END SLIDER CONTAINER WRAPPER -->
 <!-- About section starts -->
@@ -255,13 +372,6 @@ if($enable_banner){?>
 
                     </div>
                 </div>
-
-
-                <!-- <div class="col-md-6">
-                        <div class="about_img h-100">
-                            <img src="assets/img/abt1.jpg" class="img-fluid h-100" alt="">
-                        </div>
-                    </div> -->
             </div>
         </div>
     </div>
@@ -308,8 +418,8 @@ if($enable_banner){?>
                 <?php $args_selection=array(
                  
                             'post_type'=>'page',
-                          'post_parent' => 54,
-                            'posts_per_page'=>'3',
+                            'post_parent' => 54,
+                            'posts_per_page'=>'6',
                             'post_status'=>'publish',
                             'order'=>'DESC',
                             'orderby'=>'date'
@@ -344,7 +454,7 @@ if($enable_banner){?>
                 <!-- 
                 <div class="item">
                     <div class="card border-0  h-100">
-                        <img src="<?php echo get_template_directory_uri().'/assets/img/canada.jpg';?>"
+                        <img src="'/assets/img/canada.jpg';?>"
                             class="card-img-top" alt="...">
 
                         <div class="card-body">
@@ -511,7 +621,7 @@ if($enable_banner){?>
                 <?php 
                 $institution_selection_one=array(
                'post_type'=>'institution',
-                'posts_per_page'=>'6',
+                'posts_per_page'=>'12',
                'post_status'=>'publish',
                'orderby'=>'date'
 
@@ -583,7 +693,7 @@ if($enable_banner){?>
                 <div class="col-xl-12 col-lg-12 col-md-12 ">
 
                     <div class="form-wrapper">
-                       
+
                         <a class="btn-get-started booknow p-3" href="#" data-bs-toggle="modal"
                             data-bs-target="#booknowModal">Book A
                             Consultation!!</a>
@@ -629,7 +739,7 @@ if($enable_banner){?>
                         ?>
             <div class="col-md-4">
                 <div class="card h-100">
-                    <img src="<?php the_post_thumbnail_url();?>" alt="..." class="card-img-top" alt="..."
+                    <img src="<?php the_post_thumbnail_url();?>" alt="..." class="card-img-top"
                         data-pagespeed-url-hash="1256136442"
                         onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
                     <div class="card-body">
@@ -653,7 +763,7 @@ if($enable_banner){?>
         endif;?>
             <!-- <div class="col-md-4">
                 <div class="card h-100">
-                    <img src="<?php echo get_template_directory_uri().'/assets/kangarooedu.com/images/thumbnail/1613377794.jpg" class="card-img-top';?>"
+                    <img src="'/assets/kangarooedu.com/images/thumbnail/1613377794.jpg" class="card-img-top';?>"
                         alt="..." data-pagespeed-url-hash="1256136442"
                         onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
                     <div class="card-body">
@@ -805,6 +915,25 @@ if($enable_banner){?>
 </section>
 
 
+
 <!-- associate partners section ends -->
+<!-- associate partners section ends -->
+<!-- newsletter -->
+<!-- <section class="pb-50">
+        <div class="container">
+            <div class="req_img p-4">
+
+                <div class="row justify-content-center  align-items-center">
+                    <div class="col-md-10">
+                        <p>Get The Latest Notification For Our Events, Seminars &amp; Offers.</p>
+                        <form class="d-flex">
+                            <input class="form-control" type="search" placeholder="Subscribe for Newsletter..." aria-label="Search" spellcheck="false" data-ms-editor="true">
+                            <button class="btn btn-outline-success p-60 rounded-0 search_btn" type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
 
 <?php get_footer();?>

@@ -9,6 +9,7 @@
 
 get_header();
 ?>
+<?php require get_template_directory() . '/bannersec.php';?>
 
 <main id="primary" class="site-main">
 

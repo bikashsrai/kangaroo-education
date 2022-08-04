@@ -54,7 +54,7 @@
                             </p>
                             <div class="blog_user d-flex justify-content-between">
 
-                                <div class="blog_social d-flex">
+                                <!-- <div class="blog_social d-flex">
                                     <span>Share On : </span>
                                     <ul class="social-items d-flex list-unstyled">
                                         <li><a href="#"><i class="fab fa-facebook-f fb_icon"></i></a></li>
@@ -62,7 +62,7 @@
                                         <li><a href="#"><i class="fab fa-linkedin-in link_icon"></i></a></li>
                                         <li><a href="#"><i class="fab fa-instagram in_icon"></i></a></li>
                                     </ul>
-                                </div>
+                                </div> -->
                             </div>
 
                         </div>

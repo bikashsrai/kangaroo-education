@@ -40,32 +40,25 @@ $destinationTaxo = get_terms('country',
 
                     <!--search institutions  -->
 
-
-
-
                     <div class="col-md-5">
-                        <form role="search" action="<?php echo esc_url(home_url('/')); ?>" method="get">
+                        <form action="<?php echo esc_url(home_url('/')); ?>" method="get">
                             <div class="align-items-center flex-nowrap me-3 me-sm-4 pb-3">
                                 <label
                                     class="text-dark fs-6 opacity-75 text-nowrap me-2 d-none d-sm-block">INSTITUTION</label>
-                                <input class="form-control" type="text" id="country-institute" name="s"
-                                    value="<?php echo get_search_query(); ?>" placeholder="Search an Institution..."
-                                    aria-label="Search">
+                                <input class="form-control" type="search" value="<?php echo get_search_query(); ?>"
+                                    name="s" placeholder="Search an Institution..." aria-label="Search">
                             </div>
                     </div>
-                    <div class="col-md-2 sbox">
+                    <div class="col-md-2">
                         <div class="align-items-center ">
-                            <button class="btn btn-get-started rounded-0 m-0 d-flex align-items-center search-submit"
-                                type="submit"><span class=" screen-reader-text"></span><i
-                                    class="fas fa-search me-2"></i>
-                                search</button>
-
+                            <a href="<?php the_permalink();?>"
+                                class="btn btn-primary  mybtn mt-4  border bg-theme d-flex justify-content-center">
+                                Search </a>
+                            <!-- <button class="btn btn-primary  mybtn mt-4  border bg-theme d-flex justify-content-center"
+                                type="submit">Search</button> -->
                         </div>
                     </div>
                     </form>
-                    <!--  -->
-
-                    <!--  -->
                     <!-- search institutions -->
                 </div>
             </div>
@@ -151,3 +144,33 @@ jQuery('#select-destination').change(function(e) {
 });
 </script>
 <?php get_footer();?>
+
+
+<?php
+
+// <!-- test only -->
+global $post;
+$album_title="";
+
+$album_title = isset($_GET['country-title']); // say the user entered 'foot'
+$args = array(
+'post_type' => 'institution',
+'posts_per_page' => 5,
+'tax_query' => array( // NOTE: array of arrays!
+array(
+'taxonomy' => 'country',
+'field' => 'name',
+'terms' => $album_title,
+'operator' => 'LIKE'
+)
+)
+);
+
+$myposts = get_posts( $args );
+foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
+<li>
+    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+</li>
+<?php endforeach; 
+wp_reset_postdata();?>
+<!-- test 1111 -->

@@ -186,3 +186,79 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+// add_filter( 'wp_mail_smtp_core_wp_mail_function_incorrect_location_notice', '__return_false' );
+
+// .....................................filter portion funtion  start 1--------------------------
+add_action( 'wp_ajax_kangaro_filter_destination', 'kangaro_filter_destination' );
+add_action( 'wp_ajax_nopriv_kangaro_filter_destination', 'kangaro_filter_destination' );
+function kangaro_filter_destination() {
+    $id = $_POST['ID'];
+    // make buffer for json
+    ob_start();
+
+
+    // 
+	if($id==-1){
+ $taxonomy = array(
+    'post_type'         => 'institution',
+    'posts_per_page'    => -1,
+    'post_status'       => 'publish',
+    'orderby'           => 'name',
+    'order'             => 'ASC',
+    // 'paged'             => 2,
+    
+);
+	}else{
+		 $taxonomy = array(
+    'post_type'         => 'institution',
+    'posts_per_page'    => -1,
+    'post_status'       => 'publish',
+    'orderby'           => 'name',
+    'order'             => 'ASC',
+    // 'paged'             => 2,
+    'tax_query' => array(
+        array(
+            'taxonomy'  => 'country',
+            'field'     => 'id',
+            'terms'     => $id,
+        ),
+    ),
+);
+	}
+   
+$parentTaxonomy = new WP_Query( $taxonomy);
+if ( $parentTaxonomy->have_posts() ) :
+    while ( $parentTaxonomy->have_posts() ) :
+        $parentTaxonomy->the_post();?>
+<div class="col-md-3 australia">
+    <a href="<?php echo the_permalink();?>">
+        <div class="brands_item d-flex flex-column
+                                justify-content-center"><img src="<?php the_post_thumbnail_url();?>" alt="">
+            <p class="text-center"><?php the_title();?></p>
+        </div>
+    </a>
+</div>
+<?php endwhile;
+    wp_reset_postdata();
+    endif;
+
+    // send json to ajax
+    wp_send_json_success(ob_get_clean());
+    wp_die();
+}
+
+//.......................................... filter portion end 1............................
+
+
+// -----------------------------------------search portion start 2----------------------------------
+// function custom_search_result($query){
+// 	if($query->is_main_query() && !is_admin() && $query ->is_search()){
+// 		$query->set('post_type',array('post','institution'));
+// 		$query->set('posts_per_page',-1);
+// 	}
+
+// }
+// add_action('pre_get_posts','custom_search_result');
+
+
+// -----------------------------------------search portion end 2----------------------------------

@@ -45,6 +45,7 @@ wp_register_script('js-bootstrap-bundle-min',get_template_directory_uri().'/asse
 
 wp_register_script('js-glightmin',get_template_directory_uri().'/assets/dist/glightbox/js/glightbox.min.js',['jquery'],true,true);
 wp_register_script('js-platform',get_template_directory_uri().'/assets/dist/js/platform/platform.js',['jquery'],true,true); //added 1 
+wp_register_script('js-sorting',get_template_directory_uri().'/assets/dist/js/sorting.js',['jquery'],true,true);
 wp_register_script('js-main',get_template_directory_uri().'/assets/dist/js/main.js',['jquery'],true,true);
 //   wp_enqueue_script('js-main',get_template_directory_uri().'/assets/dist/js/main.js',['jQuery'],_S_VERSION,true);
 //  wp_enqueue_style('style-css');
@@ -72,6 +73,7 @@ wp_enqueue_script('js-rev');
 wp_enqueue_script('js-glightmin');
 wp_enqueue_script('js-platform');
 // wp_enqueue_script('js-jquery-cycle');
+wp_enqueue_script('js-sorting');
 wp_enqueue_script('js-main');
 
 }

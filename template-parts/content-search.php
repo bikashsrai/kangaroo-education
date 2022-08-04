@@ -9,27 +9,34 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+<?php
+get_header();?>
 
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php
-			kangarooeducation_posted_on();
-			kangarooeducation_posted_by();
-			?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
 
-	<?php kangarooeducation_post_thumbnail(); ?>
+<section class="pb-50">
+    <div class="container">
+        <div class="inst_img">
+            <div class="row">
+                <?php 
+				if(have_posts()):?>
+                <?php while(have_posts()):
+					the_post();
+				?>
+                <div class="col-md-3 australia">
+                    <a href="<?php  the_permalink();?>">
+                        <div class="brands_item d-flex flex-column
+                                justify-content-center"><img src="<?php the_post_thumbnail_url();?>"
+                                alt="<?php the_title_attribute(); ?>">
+                            <p class="text-center"><?php the_title();?></p>
+                        </div>
+                    </a>
+                </div>
+                <?php endwhile;
+				endif;?>
 
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
-
-	<footer class="entry-footer">
-		<?php kangarooeducation_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+            </div>
+        </div>
+    </div>
+</section>
+<?php
+get_footer();?>

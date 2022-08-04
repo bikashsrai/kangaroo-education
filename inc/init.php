@@ -9,6 +9,8 @@
     'inc/functions/setup.php',
     'inc/functions/acf-options.php',
     'inc/functions/custom-post-types.php',
+    'inc/functions/scripts.php',
+    'inc/functions/example.php',
    'inc/acf-blocks/ke-theme-acf-block-category.php',
    'inc/acf-blocks/ke-theme-acf-blocks.php',
    'inc/acf-blocks/ke-theme-render-callback.php',

@@ -557,7 +557,7 @@ label {
 }
 
 .rev_slider_wrapper .tp-leftarrow:before {
-  background: url("img/icons/left-arrow.png") no-repeat center center;
+  background: url("../img/icons/left-arrow.png") no-repeat center center;
 }
 
 .rev_slider_wrapper .tp-leftarrow:hover:before {
@@ -565,7 +565,7 @@ label {
 }
 
 .rev_slider_wrapper .tp-rightarrow:before {
-  background: url("img/icons/right-arrow.png") no-repeat center center;
+  background: url("../img/icons/right-arrow.png") no-repeat center center;
 }
 
 .rev_slider_wrapper .tp-rightarrow:hover:before {
@@ -1712,14 +1712,16 @@ a.toTopBtn i {
 .timeline .timeline-continue {
   position: relative;
   width: 100%;
-  padding: 60px 0;
+  padding: 10px 0;
+  /* padding: 60px 0; old */
 }
 
 .timeline .timeline-continue::after {
   position: absolute;
   content: "";
   width: 1px;
-  height: 100%;
+  /* height: 100%;  old*/
+  height: 78%;
   top: 0;
   left: 50%;
   margin-left: -1px;
@@ -2625,5 +2627,27 @@ h4.cof {
 .test_prepration {
   margin-top: -5rem;
   margin-bottom: -10rem;
+}
+
+.alert {
+  margin: -px 0 12px 0;
+  padding: 10px;
+  border-radius: 5px;
+  color: rgb(241, 131, 131);
+  background: white;
+  border: 1px solid white;
+}
+.alert .success {
+  color: green;
+  background-color: white;
+  border: 1px solid white;
+}
+.alert .error {
+  color: rgb(224, 79, 93);
+  background-color: rgb(232, 174, 174);
+  border: 1px solid white;
+}
+.sbox {
+  padding-top: 24px;
 }
 /*  added by  Bikash Rai end */

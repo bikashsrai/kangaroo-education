@@ -226,9 +226,10 @@ function ke_theme_init_block_types(){
             'title'           =>__('Photo List'), //The display for your block
             'description'     =>__('A  block for photo gallery'), //optional
             'render_template' => 'archive-photogallery.php',
+            // 'render_template' => 'template-parts/blocks/content-photocollection.php',
 			'category'        => 'ke-blocks',
-			'icon'            => 'admin-page',// optional
-			'keywords'        => array( 'our ', 'post' ), //optional
+			'icon'            => 'format-gallery',// optional
+			'keywords'        => array( 'gallery ', 'photo' ), //optional
 			'mode'            => 'edit', //optional
 			'supports'        => array( //optional
 					'mode'    => false,
@@ -244,8 +245,8 @@ function ke_theme_init_block_types(){
             'description'     =>__('A  block for  single photo gallery'), //optional
             'render_template' => 'template-parts/blocks/content-single_photo.php',
 			'category'        => 'ke-blocks',
-			'icon'            => 'admin-page',// optional
-			'keywords'        => array( 'our ', 'post' ), //optional
+			'icon'            => 'camera',// optional
+			'keywords'        => array( 'photo ', 'gallery' ), //optional
 			'mode'            => 'edit', //optional
 			'supports'        => array( //optional
 					'mode'    => false,

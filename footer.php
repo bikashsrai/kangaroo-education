@@ -10,10 +10,14 @@
  */
 
 ?>
-
+<!-- http://kangarooeducation.loc/ -->
 
 <!-- associate partners section ends -->
 <!-- newsletter -->
+
+<?php 
+ini_set('SMTP','myserver');
+ini_set('smtp_port',25);?>
 <section class="pb-50">
     <div class="container text-center">
         <div class="req_img p-4 ">
@@ -23,22 +27,53 @@
                     <p>Get The Latest Notification For Our Events, Seminars &amp; Offers.</p>
                     <div class="row justify-content-center  align-items-center g-0">
                         <div class="col-md-9">
-                            <form>
-                                <input class="form-control" type="search" placeholder="Subscribe for Newsletter..."
+                            <form action="index.php" method="POST">
+                                <?php 
+                                $userEmail=""; //leave blank 
+                                if(isset($_POST['subscribe'])){ //if subscribe btn is clicked 
+                                    $userEmail=$_POST['email']; //getting user email
+                                    if(filter_var($userEmail,FILTER_VALIDATE_EMAIL)){ //VALIdating user entered email
+                                        echo "Email is Correct";
+                                        $subject="Thanks for subsrcibing";
+                                        $message="You'll always receive lates updates";
+                                        $sender="From :Kangaroo@gmail.com"; //This email is administrative gmail
+                                        if(mail($userEmail, $subject, $message, $sender)){
+                                              ?>
+                                <?php ini_set() ?>
+                                <!-- show succes message -->
+
+                                <div class="alert success">Email subscribed</div>
+                                <?php
+                                  $userEmail=""; //leave blank and once mail send
+                                        }else{?>
+                                <div class="alert error">Error subscribe</div>
+                                <?php
+
+                                        }
+                                    }else{?>
+
+                                <div class="alert error ">Email is not valid</div>
+                                <?php
+                                }
+                                }
+                                ?>
+                                <input class="form-control" type="email" name="email" required
+                                    value="<?php echo $userEmail;?>" placeholder="Subscribe for Newsletter..."
                                     aria-label="Search" spellcheck="false" data-ms-editor="true">
 
-                            </form>
                         </div>
                         <div class="col-md-3">
-                            <button class="btn btn-outline-success p-60 rounded-0 search_btn w-100"
-                                type="submit">Subscribe</button>
+                            <button class="btn btn-outline-success p-60 rounded-0 search_btn w-100" type="submit"
+                                name="subscribe">Subscribe</button>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 
 <!-- footer -->
 
@@ -260,13 +295,22 @@
                             $c_name=get_field('country_name','option');
                             $img_circle=get_field('image_circle','option');
                             ?>
-                            <a href="<?php esc_url($url_ke);?>" target="_blank" class="text-warning">
+
+                            <?php
+								if ( $url_ke ):
+								$link_url = $url_ke['url'];
+								$link_title = $url_ke['title'];
+								$link_target = $url_ke['target'] ? $url_ke['target'] : '_self';
+								?>
+                            <a href="<?php echo esc_url( $link_url ); ?>"
+                                target="<?php echo esc_attr( $link_target ); ?>" class="text-warning">
                                 <?php
 								if ( ! empty( $img_circle ) ): ?>
                                 <img class="img-fluid" src="<?php echo esc_url( $img_circle['url'] ); ?>"
                                     alt="<?php echo esc_attr( $img_circle['alt'] ); ?>">
                                 <?php endif; ?><?php echo $c_name;?>
                             </a>
+                            <?php endif; ?>
 
                         </h5>
                     </div>

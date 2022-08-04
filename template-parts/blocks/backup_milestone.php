@@ -289,17 +289,25 @@
                             <div class="timeline-start">
                                 <p>Launch</p>
                             </div>
-                            <div class="timeline-launch">
-                                <div class="timeline-box">
-                                    <div class="timeline-text">
-                                        <h3>Launched our company on 2007</h3>
+                            <!-- 2 -->
 
-                                    </div>
-                                </div>
-                            </div>
+
+                            <!-- 1 -->
                         </div>
+                        <!-- 1 -->
+
                     </div>
                 </div>
+
             </div>
+
         </div>
+        <!-- <div class="timeline-launch">
+            <div class="timeline-box">
+                <div class="timeline-text">
+                    <h3>Launched our company on 2007</h3>
+
+                </div>
+            </div>
+        </div> -->
 </section>

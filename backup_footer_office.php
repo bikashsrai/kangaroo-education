@@ -49,18 +49,13 @@
 
                         <?php if ( have_rows( 'corporate_location_rep', 'options' ) ) : ?>
                         <?php while ( have_rows( 'corporate_location_rep', 'options' ) ) :
-		                the_row(); ?>
+		                    the_row(); ?>
 
-                        <?php
-	                	$link = get_sub_field( 'office_location', 'options' );
-	                    	if ( $link ) :
-		            	$link_url = $link['url'];
-			            $link_title = $link['title'];
-			            $link_target = $link['target'] ? $link['target'] : '_self';
-			            ?>
+                        <?php if ( $office_location = get_sub_field( 'office_location', 'options' ) ) : ?>
                         <div class="col-md-4">
-                            <a class="button" href="<?php echo esc_url( $link_url ); ?>"
-                                target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+                            <a href="">
+                                <h5> <?php echo esc_html( $office_location ); ?></h5>
+                            </a>
                         </div>
                         <?php endif; ?>
 
@@ -99,13 +94,13 @@
                     <?php if ( have_rows( 'international_location_rep', 'options' ) ) : ?>
                     <div class="row">
                         <?php while ( have_rows( 'international_location_rep', 'options' ) ) :
-	                	the_row(); ?>
+		the_row(); ?>
 
                         <?php if ( $office_location_inter = get_sub_field( 'office_location_inter', 'options' ) ) : ?>
                         <div class="col-md-4">
-                            <a href="">
-                                <h5><?php echo esc_html( $office_location_inter ); ?></h5>
-                                <a>
+                              <a href="">
+                            <h5><?php echo esc_html( $office_location_inter ); ?></h5>
+                            <a>
                         </div>
                         <?php endif; ?>
 

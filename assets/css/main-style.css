@@ -2606,8 +2606,15 @@ h4.cof {
 .ouroffices h5 {
   margin-top: 18px;
   color: var(--theme-color);
+  border: 1px solid var(--secondary-color);
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 16px;
 }
-
+.contact-item p {
+  font-weight: 500;
+  margin-bottom: 0;
+}
 /*  added by  Bikash Rai start */
 
 .dest_para {
@@ -2649,5 +2656,8 @@ h4.cof {
 }
 .sbox {
   padding-top: 24px;
+}
+#req {
+  color: red;
 }
 /*  added by  Bikash Rai end */

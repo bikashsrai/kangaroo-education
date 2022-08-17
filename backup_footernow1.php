@@ -12,134 +12,70 @@
 ?>
 <!-- http://kangarooeducation.loc/ -->
 
+<!-- associate partners section ends -->
+<!-- newsletter -->
+<?php if ( $test_newsletter = get_field( 'test_newsletter' ) ) : ?>
+<?php  echo do_shortcode( $test_newsletter ); ?>
+<?php endif; ?>
 
-<!-- ----------------------------------------------tt -->
+<?php 
+ini_set('SMTP','myserver');
+ini_set('smtp_port',25);?>
+<section class="pb-50">
+    <div class="container text-center">
+        <div class="req_img p-4 ">
 
-<!-- ----------------------------------------------tt -->
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-10">
+                    <p>Get The Latest Notification For Our Events, Seminars &amp; Offers.</p>
+                    <div class="row justify-content-center  align-items-center g-0">
+                        <div class="col-md-9">
+                            <form action="index.php" method="POST">
+                                <?php 
+                                $userEmail=""; //leave blank 
+                                if(isset($_POST['subscribe'])){ //if subscribe btn is clicked 
+                                    $userEmail=$_POST['email']; //getting user email
+                                    if(filter_var($userEmail,FILTER_VALIDATE_EMAIL)){ //VALIdating user entered email
+                                        echo "Email is Correct";
+                                        $subject="Thanks for subsrcibing";
+                                        $message="You'll always receive lates updates";
+                                        $sender="From :Kangaroo@gmail.com"; //This email is administrative gmail
+                                        if(mail($userEmail, $subject, $message, $sender)){
+                                              ?>
+                                <?php ini_set() ?>
+                                <!-- show succes message -->
 
+                                <div class="alert success">Email subscribed</div>
+                                <?php
+                                  $userEmail=""; //leave blank and once mail send
+                                        }else{?>
+                                <div class="alert error">Error subscribe</div>
+                                <?php
 
+                                        }
+                                    }else{?>
 
+                                <div class="alert error ">Email is not valid</div>
+                                <?php
+                                }
+                                }
+                                ?>
+                                <input class="form-control" type="email" name="email" required
+                                    value="<?php echo $userEmail;?>" placeholder="Subscribe for Newsletter..."
+                                    aria-label="Search" spellcheck="false" data-ms-editor="true">
 
-<section class=" pb-50">
-    <div class="container">
-        <div class="ouroffices nationaloffice bg-light  p-4 rounded-3">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class=" t_left text-center">
-                        <h4 class="cof">Corporate offices</h4>
-                        <div class="contact-item">
-                            <?php if ( $location_info_corporate = get_field( 'location_info_corporate', 'options' ) ) : ?>
-                            <p><?php echo $location_info_corporate; ?></p>
-                            <?php endif; ?>
-                            <!-- <p>AB Complex, Padmodaya Mode Putalisadak, Kathmandu, Nepal</p> -->
-
-                            <?php if ( $phone_corporate_offices = get_field( 'phone_corporate_offices', 'options' ) ) : ?>
-                            <p>
-
-                                <?php echo $phone_corporate_offices; ?>
-                            </p>
-                            <?php endif; ?>
-
-                            <?php if ( $email_corporate_offices = get_field( 'email_corporate_offices', 'options' ) ) : ?>
-                            <p> <?php echo $email_corporate_offices; ?></p>
-                            <?php endif; ?>
                         </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-outline-success p-60 rounded-0 search_btn w-100" type="submit"
+                                name="subscribe">Subscribe</button>
+                        </div>
+                        </form>
                     </div>
-                    <div class="row">
-
-                        <?php if ( have_rows( 'corporate_location_rep', 'options' ) ) : ?>
-                        <?php while ( have_rows( 'corporate_location_rep', 'options' ) ) :
-		                the_row(); ?>
-
-                        <?php
-	                	$link = get_sub_field( 'office_location', 'options' );
-	                    	if ( $link ) :
-		            	$link_url = $link['url'];
-			            $link_title = $link['title'];
-			            $link_target = $link['target'] ? $link['target'] : '_self';
-			            ?>
-                        <div class="col-md-4">
-                            <a class="button" href="<?php echo esc_url( $link_url ); ?>"
-                                target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
-                        </div>
-                        <?php endif; ?>
-
-                        <?php endwhile; ?>
-                        <?php endif; ?>
-
-
-
-
-
-
-                        <!-- <div class="col-md-4">
-                            <h5> Kathmandu</h5>
-                        </div>
-                        <div class="col-md-4">
-                            <h5>Pokhara Office</h5>
-                        </div>
-                        <div class="col-md-4">
-                            <h5> Chitwan </h5>
-                        </div>
-                        <div class="col-md-4">
-                            <h5>Ithari</h5>
-                        </div>
-                        <div class="col-md-4">
-                            <h5>Butwal</h5>
-                        </div>
-                        <div class="col-md-4">
-                            <h5>Nepalgunj</h5>
-                        </div> -->
-                    </div>
-                </div>
-                <div class="col-md-12 mt-4">
-                    <div class=" t_left text-center">
-                        <h4 class="cof">International office</h4>
-                    </div>
-                    <?php if ( have_rows( 'international_location_rep', 'options' ) ) : ?>
-                    <div class="row">
-                        <?php while ( have_rows( 'international_location_rep', 'options' ) ) :
-	                	the_row(); ?>
-
-                        <?php if ( $office_location_inter = get_sub_field( 'office_location_inter', 'options' ) ) : ?>
-                        <div class="col-md-4">
-                            <a href="">
-                                <h5><?php echo esc_html( $office_location_inter ); ?></h5>
-                                <a>
-                        </div>
-                        <?php endif; ?>
-
-                        <?php endwhile; ?>
-                    </div>
-                    <?php endif; ?>
-
-                    <!-- <div class="col-md-4">
-                            <h5>Australia(Adeliade)</h5>
-                        </div>
-                        <div class="col-md-4">
-                            <h5> Australia(Tasmania) </h5>
-                        </div> -->
-
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-
-
-<!-- associate partners section ends -->
-<!-- newsletter -->
-<section class="pb-50">
-    <div class="container text-center">
-        <div class="req_img p-4 ">
-            <?php if ( $test_newsletter = get_field( 'test_newsletter' ) ) : ?>
-            <?php  echo do_shortcode( $test_newsletter ); ?>
-            <?php endif; ?>
-        </div>
-    </div>
-</section>
-
 
 
 <!-- footer -->
@@ -183,8 +119,82 @@
                     </div>
                 </div>
             </div>
-            <!-- office location and name start -->
-            <!-- office location and name end -->
+            <div class="ouroffices nationaloffice bg-light  p-4 rounded-3">
+                <div class="row">
+                    <div class="col-md-6 border-end">
+                        <?php
+                        $office_type1=get_field('office_location_name_1','option'); 
+                        ?>
+                        <div class=" t_left text-center">
+                            <h4 class="cof"><?php echo $office_type1;?></h4>
+
+                        </div>
+
+                        <div class="row">
+                            <?php 
+                        
+                        if(have_rows('new_footer_section_rep','option')):
+                            while(have_rows('new_footer_section_rep','option')):the_row();
+                            $location_name_office=get_sub_field('place_location');
+                            
+                        ?>
+                            <div class="col-md-6">
+                                <h5> <?php echo $location_name_office;?></h5>
+                            </div>
+                            <?php endwhile;
+                            endif;?>
+                            <!-- <div class="col-md-6">
+                                <h5>Pokhara Office</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5> Chitwan </h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Ithari</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Butwal</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Nepalgunj</h5>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <?php
+                        $office_type2=get_field('office_type_2','option');
+                        ?>
+                        <div class=" t_left text-center">
+                            <h4 class="cof"><?php echo $office_type2;?></h4>
+
+
+                        </div>
+
+
+
+                        <div class="row">
+                            <?php 
+                        if(have_rows('type_office_rep','option')):
+                            while(have_rows('type_office_rep','option')):the_row();
+                            $office_location2=get_sub_field('office__location_name');
+                        ?>
+                            <div class="col-md-6">
+                                <h5><?php echo $office_location2;?></h5>
+                            </div>
+                            <?php endwhile;
+                            endif;
+                            ?>
+                            <!-- <div class="col-md-6">
+                                <h5>Australia(Adeliade)</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5> Australia(Tasmania) </h5>
+                            </div> -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="footer-middle-wrap">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6">

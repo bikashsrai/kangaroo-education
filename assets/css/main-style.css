@@ -3312,12 +3312,14 @@ h4.cof {
 .contact-item p {
   font-weight: 500;
   margin-bottom: 0;
+<<<<<<< HEAD
 }
 .contact-item {
   margin-top: 15px;
   margin-bottom: 15px;
+=======
+>>>>>>> fbfd386c4822137e18d26121e33f13fbc6bf8d53
 }
-
 /*  added by  Bikash Rai start */
 
 .dest_para {
@@ -3363,7 +3365,10 @@ h4.cof {
 #req {
   color: red;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> fbfd386c4822137e18d26121e33f13fbc6bf8d53
 /*  added by  Bikash Rai end */
 
 .study_left p {

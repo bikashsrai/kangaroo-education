@@ -35,7 +35,7 @@ if($enable1_who){
 </section>
 <section class="bg-light pt-50 pb-50 mt-5">
     <div class="container">
-        <p class="fs-5 text-theme" <?php echo $des2_who;?></p>
+        <p class="fs-5 text-theme"><?php echo $des2_who;?></p>
     </div>
 </section>
 <?php }?>

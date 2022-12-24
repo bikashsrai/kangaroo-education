@@ -5,14 +5,30 @@ function ke_theme_init_block_types(){
     //check function exists
     if(function_exists('acf_register_block_type')){
         //register the home block
-        acf_register_block_type(array(
-            'name'=>'ke-theme-home', //a unique name that identifies the block
-            'title'=>__('The Home'), //The display for your block
-            'description'=>__('A custom block for home'), //optional
+        // acf_register_block_type(array(
+        //     'name'=>'ke-theme-home', //a unique name that identifies the block
+        //     'title'=>__('The Home'), //The display for your block
+        //     'description'=>__('A custom block for home'), //optional
+        //     'render_template' => 'template-parts/blocks/content-home.php',
+		// 	'category'        => 'ke-blocks',
+		// 	'icon'            => 'admin-appearance',// optional
+		// 	'keywords'        => array( 'quote', 'mention' ), //optional
+		// 	'mode'            => 'edit', //optional
+		// 	'supports'        => array( //optional
+		// 			'mode'  => false,
+		// 			'align' => false,
+		// 		), 
+            
+        //     ));
+			  //register the home block
+       		 acf_register_block_type(array(
+            'name'=>'ke-theme-new-home', //a unique name that identifies the block
+            'title'=>__('The New Home'), //The display for your block
+            'description'=>__('A custom block for new home'), //optional
             'render_template' => 'template-parts/blocks/content-home.php',
 			'category'        => 'ke-blocks',
 			'icon'            => 'admin-appearance',// optional
-			'keywords'        => array( 'quote', 'mention' ), //optional
+			'keywords'        => array( 'new', 'home' ), //optional
 			'mode'            => 'edit', //optional
 			'supports'        => array( //optional
 					'mode'  => false,
@@ -20,6 +36,8 @@ function ke_theme_init_block_types(){
 				), 
             
             ));
+
+
 
          //Register the who we are block
           acf_register_block_type(array(
@@ -38,6 +56,7 @@ function ke_theme_init_block_types(){
             
             )); 
             
+		
             // Register Our Approach
              acf_register_block_type(array(
             'name'            =>'ke-theme-our-approach', //a unique name that identifies the block
@@ -64,7 +83,7 @@ function ke_theme_init_block_types(){
             'render_template' => 'template-parts/blocks/content-milestone.php',
 			'category'        => 'ke-blocks',
 			'icon'            => 'admin-page',// optional
-			'keywords'        => array( 'our ', 'approach' ), //optional
+			'keywords'        => array( 'journey ', 'milestone' ), //optional
 			'mode'            => 'edit', //optional
 			'supports'        => array( //optional
 					'mode'    => false,
@@ -83,7 +102,7 @@ function ke_theme_init_block_types(){
             'render_template' => 'template-parts/blocks/content-not_found.php',
 			'category'        => 'ke-blocks',
 			'icon'            => 'admin-page',// optional
-			'keywords'        => array( 'our ', 'approach' ), //optional
+			'keywords'        => array( '404 ', 'error' ), //optional
 			'mode'            => 'edit', //optional
 			'supports'        => array( //optional
 					'mode'    => false,
@@ -113,13 +132,13 @@ function ke_theme_init_block_types(){
             // register the study Abroad
             
              acf_register_block_type(array(
-            'name'            =>'ke-theme-message-study-abroad', //a unique name that identifies the block
-            'title'           =>__('Study Abroad'), //The display for your block
-            'description'     =>__('A custom block for about study abroad'), //optional
+            'name'            =>'ke-theme-message-study-Abroad', //a unique name that identifies the block
+            'title'           =>__('Study Abroad In'), //The display for your block
+            'description'     =>__('A custom block for about study abroad Abroad'), //optional
             'render_template' => 'template-parts/blocks/content-study-abroad.php',
 			'category'        => 'ke-blocks',
 			'icon'            => 'admin-page',// optional
-			'keywords'        => array( 'our ', 'approach' ), //optional
+			'keywords'        => array( 'study ', 'abroad' ), //optional
 			'mode'            => 'edit', //optional
 			'supports'        => array( //optional
 					'mode'    => false,
@@ -127,17 +146,52 @@ function ke_theme_init_block_types(){
 				), 
             
             )); 
+			  // register the study  In different country each
+            
+             acf_register_block_type(array(
+            'name'            =>'ke-theme-message-abroad', //a unique name that identifies the block
+            'title'           =>__('Main Abroad'), //The display for your block
+            'description'     =>__('A custom block for about study abroad in different country'), //optional
+            'render_template' => 'template-parts/blocks/content-abroad.php',
+			'category'        => 'ke-blocks',
+			'icon'            => 'admin-page',// optional
+			'keywords'        => array( 'read ', 'studyin' ), //optional
+			'mode'            => 'edit', //optional
+			'supports'        => array( //optional
+					'mode'    => false,
+					'align'   => false,
+				), 
+            
+            )); 
+            //Test preparation main parent page block
+              acf_register_block_type(array(
+            'name'            =>'ke-theme-message-preparation', //a unique name that identifies the block
+            'title'           =>__('Main Preparation'), //The display for your block
+            'description'     =>__('A custom block for test preparation'), //optional
+            'render_template' => 'template-parts/blocks/content-preparation.php',
+			'category'        => 'ke-blocks',
+			'icon'            => 'admin-page',// optional
+			'keywords'        => array( 'message ', 'test' ), //optional
+			'mode'            => 'edit', //optional
+			'supports'        => array( //optional
+					'mode'    => false,
+					'align'   => false,
+				), 
+            
+            )); 
+                 
+
             
 
-            //Test preparation
+            //Test preparation single page block
               acf_register_block_type(array(
             'name'            =>'ke-theme-message-test-preparation', //a unique name that identifies the block
             'title'           =>__('Test Preparation'), //The display for your block
-            'description'     =>__('A custom block for test preparation'), //optional
+            'description'     =>__('A custom block for test preparation for ielts, toefl , pte'), //optional
             'render_template' => 'template-parts/blocks/content-test_preparation.php',
 			'category'        => 'ke-blocks',
 			'icon'            => 'admin-page',// optional
-			'keywords'        => array( 'our ', 'approach' ), //optional
+			'keywords'        => array( 'test ', 'preparation' ), //optional
 			'mode'            => 'edit', //optional
 			'supports'        => array( //optional
 					'mode'    => false,
@@ -156,7 +210,7 @@ function ke_theme_init_block_types(){
             'render_template' => 'archive-institution.php',
 			'category'        => 'ke-blocks',
 			'icon'            => 'admin-page',// optional
-			'keywords'        => array( 'our ', 'approach' ), //optional
+			'keywords'        => array( 'university ', 'institution' ), //optional
 			'mode'            => 'edit', //optional
 			'supports'        => array( //optional
 					'mode'    => false,
@@ -164,6 +218,7 @@ function ke_theme_init_block_types(){
 				), 
             
             )); 
+
 
 			//Register for the single block for the single-institution page
 
@@ -175,7 +230,7 @@ function ke_theme_init_block_types(){
             'render_template' => 'template-parts/blocks/content-single_institution.php',
 			'category'        => 'ke-blocks',
 			'icon'            => 'admin-page',// optional
-			'keywords'        => array( 'our ', 'approach' ), //optional
+			'keywords'        => array( 'university ', 'institution' ), //optional
 			'mode'            => 'edit', //optional
 			'supports'        => array( //optional
 					'mode'    => false,
@@ -184,9 +239,25 @@ function ke_theme_init_block_types(){
             
             )); 
 
+			//Register the testimonial cpt block
 
+             acf_register_block_type(array(
+            'name'            =>'ke-theme-testimonial', //a unique name that identifies the block
+            'title'           =>__('Testimonial details '), //The display for your block
+            'description'     =>__('A custom block for testimonial'), //optional
+            'render_template' =>'template-parts/blocks/content-single_testimonial.php',
+			'category'        => 'ke-blocks',
+			'icon'            => 'admin-page',// optional
+			'keywords'        => array( 'opinion', 'testimonial' ), //optional
+			'mode'            => 'edit', //optional
+			'supports'        => array( //optional
+					'mode'    => false,
+					'align'   => false,
+				), 
+            
+            )); 
 
-			 //TRegister for the single post block
+			 //Register for the single post block
               acf_register_block_type(array(
             'name'            =>'ke-theme-single post ', //a unique name that identifies the block
             'title'           =>__('Single Post '), //The display for your block
@@ -305,22 +376,7 @@ function ke_theme_init_block_types(){
             
             )); 
 
-			// Register Banner Slide
-			//    acf_register_block_type(array(
-            // 'name'            =>'ke-theme-banner', //a unique name that identifies the block
-            // 'title'           =>__('Banner slide'), //The display for your block
-            // 'description'     =>__('A custom block for  banner'), //optional
-            // 'render_template' => 'template-parts/content-mainbanner.php',
-			// 'category'        => 'ke-blocks',
-			// 'icon'            => 'admin-page',// optional
-			// 'keywords'        => array( 'banner ', 'us' ), //optional
-			// 'mode'            => 'edit', //optional
-			// 'supports'        => array( //optional
-			// 		'mode'    => false,
-			// 		'align'   => false,
-			// 	), 
-            
-            // )); 
+			
                  
                  
 

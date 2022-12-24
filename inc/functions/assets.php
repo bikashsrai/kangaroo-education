@@ -18,6 +18,7 @@ function kangaroo_education_scripts(){
  wp_register_style('css-flat-icon',get_template_directory_uri().'/assets/css/flaticon.css',[],true,'all');
  wp_register_style('css-owl-carousel','https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css');
  wp_register_style('css-owl-theme','https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css');
+ wp_register_style('animate',get_template_directory_uri().'/assets/css/animate.css',[],true,'all');
  wp_register_style('css-layers',get_template_directory_uri().'/assets/css/revolution/layers.css',[],true,'all');
  wp_register_style('css-navigation',get_template_directory_uri().'/assets/css/revolution/navigation.css',[],true,'all');
  wp_register_style('css-settings',get_template_directory_uri().'/assets/css/revolution/settings.css',[],true,'all');
@@ -43,6 +44,7 @@ wp_register_script('js-rev',get_template_directory_uri().'/assets/dist/js/revolu
 wp_register_script('js-owl-carousel','https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js',['jquery'],true,true);
 wp_register_script('js-bootstrap-bundle-min',get_template_directory_uri().'/assets/dist/js/bootstrap.bundle.min.js',['jquery'],true,true);
 
+wp_register_script('js-flexslider',get_template_directory_uri().'/assets/dist/js/jquery.flexslider-min.js',['jquery'],true,true);
 wp_register_script('js-glightmin',get_template_directory_uri().'/assets/dist/glightbox/js/glightbox.min.js',['jquery'],true,true);
 wp_register_script('js-platform',get_template_directory_uri().'/assets/dist/js/platform/platform.js',['jquery'],true,true); //added 1 
 wp_register_script('js-sorting',get_template_directory_uri().'/assets/dist/js/sorting.js',['jquery'],true,true);
@@ -53,6 +55,7 @@ wp_enqueue_style('css-all-min');
 wp_enqueue_style('css-flat-icon');
 wp_enqueue_style('css-owl-carousel');
 wp_enqueue_style('css-owl-theme');
+wp_enqueue_style('animate');
 wp_enqueue_style('css-layers');
 wp_enqueue_style('css-navigation');
 wp_enqueue_style('css-settings');
@@ -64,6 +67,7 @@ wp_enqueue_style('main-style-css');
 
 //wp_enqueue script
 wp_enqueue_script('js-jquery-min');
+wp_enqueue_script('js-flexslider');
 // wp_enqueue_script('js-jquery-mind');
 wp_enqueue_script('js-owl-carousel');
 wp_enqueue_script('js-bootstrap-bundle-min');

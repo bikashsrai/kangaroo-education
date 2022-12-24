@@ -26,7 +26,7 @@ if($enable_section){
             <div class="row">
                 <div class="col-md-4">
                     <div class="mymessage_image">
-                        <img src="https://kangarooedu.com.au/wp-content/uploads/2021/09/ezgif.com-gif-maker-scaled.webp"
+                        <img src="<?php echo get_field('image_ceo')['url']; ?>"
                             class="h-100">
                     </div>
                 </div>

@@ -34,27 +34,59 @@
                                     <span>By : <?php the_author();?></span>
                                 </p>
                             </div>
-                            <h3><a href="<?php the_permalink(); ?>" title=""><?php the_title();?></a></h3>
+						<!-- repeater for post start -->
+							<?php $enable_blog_content=get_field('enable_blog_section');
+							if($enable_blog_content){?>
+							<?php if ( have_rows( 'blog_rep' ) ) : ?>
+							<?php while ( have_rows( 'blog_rep' ) ) :
+							the_row(); ?>
+							<?php if ( $heading_blog = get_sub_field( 'heading_blog' ) ) : ?>
+                            <h3><a href="<?php the_permalink(); ?>" title=""><?php echo esc_html( $heading_blog ); ?></a>                               </h3>
+							<?php endif; ?>
+								<!-- image1 -->
+							 <div class="blog_image" style = "margin-top: 20px ;">
+                            <a href="blog_single.html" title=""> <?php
+								$image_blog = get_sub_field( 'image_blog' );
+								if ( $image_blog ) : ?>
+                                <img class="img-fluid w-100" src="<?php echo esc_url( $image_blog['url'] ); ?>" alt="<?php echo esc_attr( $image_blog['alt'] );?>" width="100%" height="500">
+                                <?php endif;?></a>
+                        </div>
+							<!-- image1 -->
+							<?php if ( $content_blog = get_sub_field( 'content_blog' ) ) : ?>
                             <p class="excert">
-                                <?php echo $content_post1;?> </p>
+                              	<?php echo $content_blog; ?> </p>
+							<?php endif; ?>
+					
+							
+						<?php endwhile; ?>
+						<?php endif; ?>
+							<?php }?>
+						<!-- repeater for post end -->
+							<?php $quote_text=get_field('enable_quote_section');
+							if($quote_text){?>
                             <div class="quote-wrapper">
-                                <div class="quotes">
-                                    To be successful in IELTS exam, we should be psychologically in a very strong state.
-                                    Your motivation and determination are very important to strengthen your psychology.
-                                    Furthermore, making a career goal in advance will boost your determination to
-                                    achieve
-                                    success in IELTS. Here, I give you an example, well, if your career goal is to be a
-                                    lawyer in life, then you know you have to join a good law school and work hard.
+								<?php if ( $quotes_blog = get_field( 'quotes_blog' ) ) : ?>
+	
+                               <div class="quotes">
+                                  <?php echo $quotes_blog; ?>
                                 </div>
+								<?php endif; ?>
                             </div>
+							<?php }?>
+							<?php $conclusion_blog=get_field('enable_conclusion_section');
+							if($conclusion_blog){?>
+							 <?php if ( $conclusion_blog = get_field( 'conclusion_blog' ) ) : ?>
                             <p>
-                                Therefore, having a career goal in life helps you to be organized, motivated and
-                                determined, which are the important psychological aspects that put you in a position of
-                                doing better in IELTS.
-                            </p>
-                            <div class="blog_user d-flex justify-content-between">
+                             
+							<?php echo $conclusion_blog; ?>
 
-                                <!-- <div class="blog_social d-flex">
+                            </p>
+							<?php endif; ?>
+							<?php }?>
+                            <div class="blog_user d-flex justify-content-between">
+                            <?php  $social_share=get_field('enable_social_media_section');
+								if($social_share){?>
+                                <div class="blog_social d-flex">
                                     <span>Share On : </span>
                                     <ul class="social-items d-flex list-unstyled">
                                         <li><a href="#"><i class="fab fa-facebook-f fb_icon"></i></a></li>
@@ -62,7 +94,8 @@
                                         <li><a href="#"><i class="fab fa-linkedin-in link_icon"></i></a></li>
                                         <li><a href="#"><i class="fab fa-instagram in_icon"></i></a></li>
                                     </ul>
-                                </div> -->
+                                </div>
+										<?php }?>
                             </div>
 
                         </div>
@@ -103,7 +136,7 @@
                                     <div class="recent_img">
                                         <a href="<?php the_permalink();?>" title=""><img
                                                 src="<?php the_post_thumbnail_url();?>"
-                                                alt="<?php echo get_post_meta(get_post_thumbnail_id(),'_wp_attachment_image_alt',true);?>"
+                                                alt="<?php echo 				get_post_meta(get_post_thumbnail_id(),'_wp_attachment_image_alt',true);?>"
                                                 class="img-fluid"></a>
                                     </div>
                                     <div class="post_title">

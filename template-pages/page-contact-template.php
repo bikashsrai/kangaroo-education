@@ -1,12 +1,9 @@
 <?php
-
 /**
- * Block for contact us
- * 
+ * Template Name:Contact
  */
-get_header(); ?>
-
-
+get_header();
+?>
 <!-- main bosy part start -->
 <!-- breadcrumb -->
 <?php require get_template_directory() . '/bannersec.php';?>
@@ -243,8 +240,8 @@ get_header(); ?>
         var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
         var data = {
             'action'        : 'kangaro_contact_search',
-            'loc'      : location,
-            'pageID'        : pageID,
+            'loc'           : location,
+            'ID'            : pageID,
         };
     $.ajax({ // you can also use $.post here
         url: ajaxurl, // AJAX handler
@@ -258,4 +255,5 @@ get_header(); ?>
     });
 });
 </script>
-<?php get_footer();?>
+<?php
+get_footer();

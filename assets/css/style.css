@@ -3312,12 +3312,20 @@ h4.cof {
 .contact-item p {
   font-weight: 500;
   margin-bottom: 0;
+<<<<<<< HEAD:assets/css/style.css
+=======
+<<<<<<< HEAD
+>>>>>>> 7a12498542e9d987cac2a29809d58a130c37822d:assets/css/main-style.css
 }
 .contact-item {
   margin-top: 15px;
   margin-bottom: 15px;
+<<<<<<< HEAD:assets/css/style.css
+=======
+=======
+>>>>>>> fbfd386c4822137e18d26121e33f13fbc6bf8d53
+>>>>>>> 7a12498542e9d987cac2a29809d58a130c37822d:assets/css/main-style.css
 }
-
 /*  added by  Bikash Rai start */
 
 .dest_para {
@@ -3363,7 +3371,14 @@ h4.cof {
 #req {
   color: red;
 }
+<<<<<<< HEAD:assets/css/style.css
 
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> fbfd386c4822137e18d26121e33f13fbc6bf8d53
+>>>>>>> 7a12498542e9d987cac2a29809d58a130c37822d:assets/css/main-style.css
 /*  added by  Bikash Rai end */
 
 .study_left p {
@@ -3373,6 +3388,22 @@ h4.cof {
 p {
     font-size: 17px;
 }
+<<<<<<< HEAD:assets/css/style.css
 .wpcf7-response-output {
     color: black !important;
+=======
+
+
+/* display noe for form sent message */
+.screen-reader-response {
+    display: none !important;
+}
+@media(max-width:767px){
+.footer-area .footer-title::after{
+display:none
+}
+	.college_slider .owl-nav{
+		display:none
+	}
+>>>>>>> 7a12498542e9d987cac2a29809d58a130c37822d:assets/css/main-style.css
 }

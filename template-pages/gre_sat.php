@@ -1,6 +1,9 @@
 <?/**
   * Template Name: other test 
+<<<<<<< HEAD
   * This template is for test preparation for sat, gre ,gmat
+=======
+>>>>>>> 7a12498542e9d987cac2a29809d58a130c37822d
   * Summary.
   *
   * Description.
@@ -26,15 +29,24 @@
                             <div class="style_bar"></div>
                         </div>
                         <p>
+<<<<<<< HEAD
                             <?php if ( $description = get_field( 'description',false ) ) : ?>
+=======
+                            <?php if ( $description = get_field( 'description' ) ) : ?>
+>>>>>>> 7a12498542e9d987cac2a29809d58a130c37822d
                             <?php echo $description; ?>
                             <?php endif; ?>
                         </p>
                         <div class="style_bar"></div>
+<<<<<<< HEAD
 						<?php if ( get_field( 'enable_table_section' ) ) : ?>
                         <p>
 					<!-- table data section -->
 							
+=======
+                        <p>
+
+>>>>>>> 7a12498542e9d987cac2a29809d58a130c37822d
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -80,9 +92,14 @@
                                 <?php endwhile; ?>
                                 <?php endif; ?>
                             </tbody>
+<<<<<<< HEAD
                         </table>					
                         </p>
 					<?php endif; ?>
+=======
+                        </table>
+                        </p>
+>>>>>>> 7a12498542e9d987cac2a29809d58a130c37822d
                         <p><?php if ( $second_description = get_field( 'second_description' ) ) : ?>
                             <?php echo $second_description; ?>
                             <?php endif; ?></p>

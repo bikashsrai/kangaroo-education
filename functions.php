@@ -462,8 +462,11 @@ remove_filter( 'the_excerpt', 'wpautop' );
 
 // new function for form test
 
+<<<<<<< HEAD
 add_filter('wpcf7_autop_or_not', '__return_false');
 
 // test
 
+=======
+>>>>>>> 7a12498542e9d987cac2a29809d58a130c37822d
 

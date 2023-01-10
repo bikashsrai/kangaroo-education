@@ -10,7 +10,7 @@
 <?php 
 $banner_img=get_field('image_banner_sec','option');
 ?>
-<div class="aemi_breadcrumb" style="background-image:url('<?php echo esc_url( $banner_img['url'] ); ?>')">
+<div class="aemi_breadcrumb" style="background-image:url('<?php echo get_template_directory_uri().'/assets/img/bansec.jpg';?>">
     <div class="container">
         <div class="row">
             <div class="col-md-12">

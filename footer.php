@@ -12,76 +12,22 @@
 ?>
 <!-- http://kangarooeducation.loc/ -->
 
+
+<!-- new footer corporate and international offices-->
+
 <!-- associate partners section ends -->
 <!-- newsletter -->
 
-<?php 
-ini_set('SMTP','myserver');
-ini_set('smtp_port',25);?>
-<section class="pb-50">
-    <div class="container text-center">
-        <div class="req_img p-4 ">
 
-            <div class="row align-items-center justify-content-center">
-                <div class="col-md-10">
-                    <p>Get The Latest Notification For Our Events, Seminars &amp; Offers.</p>
-                    <div class="row justify-content-center  align-items-center g-0">
-                        <div class="col-md-9">
-                            <form action="index.php" method="POST">
-                                <?php 
-                                $userEmail=""; //leave blank 
-                                if(isset($_POST['subscribe'])){ //if subscribe btn is clicked 
-                                    $userEmail=$_POST['email']; //getting user email
-                                    if(filter_var($userEmail,FILTER_VALIDATE_EMAIL)){ //VALIdating user entered email
-                                        echo "Email is Correct";
-                                        $subject="Thanks for subsrcibing";
-                                        $message="You'll always receive lates updates";
-                                        $sender="From :Kangaroo@gmail.com"; //This email is administrative gmail
-                                        if(mail($userEmail, $subject, $message, $sender)){
-                                              ?>
-                                <?php ini_set() ?>
-                                <!-- show succes message -->
 
-                                <div class="alert success">Email subscribed</div>
-                                <?php
-                                  $userEmail=""; //leave blank and once mail send
-                                        }else{?>
-                                <div class="alert error">Error subscribe</div>
-                                <?php
-
-                                        }
-                                    }else{?>
-
-                                <div class="alert error ">Email is not valid</div>
-                                <?php
-                                }
-                                }
-                                ?>
-                                <input class="form-control" type="email" name="email" required
-                                    value="<?php echo $userEmail;?>" placeholder="Subscribe for Newsletter..."
-                                    aria-label="Search" spellcheck="false" data-ms-editor="true">
-
-                        </div>
-                        <div class="col-md-3">
-                            <button class="btn btn-outline-success p-60 rounded-0 search_btn w-100" type="submit"
-                                name="subscribe">Subscribe</button>
-                        </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
+<!--paste shortcode here news letter-->
 
 <!-- footer -->
 
 <!-- Footer Section Starts -->
 <footer class="footer-area">
 
-    <div class="footer-top-area"
-        style="background-image: url(<?php echo get_template_directory_uri().'/assets/img/footerbg.png';?>);">
+    <div class="footer-top-area" style="background-color:#290233;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5 col-md-6 col-sm-6">
@@ -109,89 +55,22 @@ ini_set('smtp_port',25);?>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer-widget widget">
                         <div class="btn-wrap footer-btn">
-                            <a class="btn-get-started bg-white
-                                 text-theme rounded-3   contactbtn fw-bold text-theme" href="contactus.html">Let's Talk
+                            <?php
+                            $link = get_field( 'link_talk', 'options' );
+                            if ( $link ) :
+                        	$link_url = $link['url'];
+	                            $link_title = $link['title'];
+                        	$link_target = $link['target'] ? $link['target'] : '_self';
+                            	?>
+                            	<a class="btn-get-started bg-white
+                                 text-theme rounded-3   contactbtn fw-bold text-theme" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?>
                                 <i class="flaticon-long-right-arrow"></i></a>
-                        </div>
+                                <?php endif; ?>
+                          </div>
                     </div>
                 </div>
             </div>
-            <div class="ouroffices nationaloffice bg-light  p-4 rounded-3">
-                <div class="row">
-                    <div class="col-md-6 border-end">
-                        <?php
-                        $office_type1=get_field('office_location_name_1','option'); 
-                        ?>
-                        <div class=" t_left text-center">
-                            <h4 class="cof"><?php echo $office_type1;?></h4>
-
-                        </div>
-
-                        <div class="row">
-                            <?php 
-                        
-                        if(have_rows('new_footer_section_rep','option')):
-                            while(have_rows('new_footer_section_rep','option')):the_row();
-                            $location_name_office=get_sub_field('place_location');
-                            
-                        ?>
-                            <div class="col-md-6">
-                                <h5> <?php echo $location_name_office;?></h5>
-                            </div>
-                            <?php endwhile;
-                            endif;?>
-                            <!-- <div class="col-md-6">
-                                <h5>Pokhara Office</h5>
-                            </div>
-                            <div class="col-md-6">
-                                <h5> Chitwan </h5>
-                            </div>
-                            <div class="col-md-6">
-                                <h5>Ithari</h5>
-                            </div>
-                            <div class="col-md-6">
-                                <h5>Butwal</h5>
-                            </div>
-                            <div class="col-md-6">
-                                <h5>Nepalgunj</h5>
-                            </div> -->
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <?php
-                        $office_type2=get_field('office_type_2','option');
-                        ?>
-                        <div class=" t_left text-center">
-                            <h4 class="cof"><?php echo $office_type2;?></h4>
-
-
-                        </div>
-
-
-
-                        <div class="row">
-                            <?php 
-                        if(have_rows('type_office_rep','option')):
-                            while(have_rows('type_office_rep','option')):the_row();
-                            $office_location2=get_sub_field('office__location_name');
-                        ?>
-                            <div class="col-md-6">
-                                <h5><?php echo $office_location2;?></h5>
-                            </div>
-                            <?php endwhile;
-                            endif;
-                            ?>
-                            <!-- <div class="col-md-6">
-                                <h5>Australia(Adeliade)</h5>
-                            </div>
-                            <div class="col-md-6">
-                                <h5> Australia(Tasmania) </h5>
-                            </div> -->
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <div class="footer-middle-wrap">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6">
@@ -220,8 +99,18 @@ ini_set('smtp_port',25);?>
                                     <?php 
                                     while(have_rows('social_links_footer','option')):the_row();
                                       $icon_social=get_sub_field('icons_social_footer','option');
+                                        $link = get_sub_field( 'social_links', 'options' );
                                    ?>
-                                    <li><a href="#"><i class="fab fa-<?php echo $icon_social;?>"></i></a></li>
+                                     <?php
+                                 
+                                        if ( $link ) :
+	                                    $link_url = $link['url'];
+	                                        $link_title = $link['title'];
+	                                        $link_target = $link['target'] ? $link['target'] : '_self';
+	                                                            ?>
+                                    <li><a href="<?php echo esc_url( $link_url ); ?>"
+                                            target="<?php echo esc_attr( $link_target ); ?>"><i class="fab fa-<?php echo $icon_social;?>"></i></a></li>
+                                               <?php endif; ?>
                                     <!-- <li><a href="#"><i class="fab fa-twitter"></i></a></li>-->
                                     <?php endwhile; ?>
                                 </ul>
@@ -271,7 +160,7 @@ ini_set('smtp_port',25);?>
                     </div>
                     <div class="col-lg-2 col-md-6 col-sm-6">
                         <div class="footer-widget widget widget_nav_menu">
-                            <h4 class="widget-headline">Kangarooedu Career</h4>
+                            <h4 class="widget-headline">Privacy</h4>
                             <ul class="nav_menu">
                                 <?php 
                                 wp_nav_menu(array(
@@ -347,56 +236,26 @@ ini_set('smtp_port',25);?>
             <h5 id="bookformrightLabel">Get in Touch with Experts for a Free Consultation</h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
+        <!--sidebar right form -->
         <div class="offcanvas-body bg-theme1">
             <div class="reply-area">
-                <h3 class="text-white mb-3 border-bottom pb-3"> Franchise With Us!!!</h3>
-                <form id="contact-form" action="#">
-                    <!-- Contact form for franchis with us -->
-                    <?php 
-                        $form_franchis=get_field('form_for_franchis');
-                        echo do_shortcode($form_franchis);?>
-                    <!-- <div class="row">
-                        <div class="col-md-12">
-                            <label for="Name">Name</label>
-                            <input type="text" name="con_name" spellcheck="false" data-ms-editor="true">
-                        </div>
-                        <div class="col-md-12">
-                            <label for="Name">Company Name</label>
-                            <input type="text" name="con_name" spellcheck="false" data-ms-editor="true">
-                        </div>
-                        <div class="col-md-12">
-                            <label for="Name">Email</label>
-                            <input type="email" name="con_email">
-                        </div>
-                        <div class="col-md-12">
-                            <label for="Name">Phone</label>
-                            <input type="phone" name="con_email" spellcheck="false" data-ms-editor="true">
-                        </div>
-                        <div class="col-md-12">
-                            <label for="Name">Country</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected="">-- Select Nearest Office --</option>
-                                <option value="1">Australia</option>
-                                <option value="2">Nepal</option>
-                                <option value="3">Canada</option>
-                            </select>
-                        </div>
-
-                        <div class="col-md-12">
-
-                            <label for="">Message</label>
-                            <textarea name="con_message" cols="15" rows="3" spellcheck="false" data-ms-editor="true"
-                                style="height:unset"></textarea>
-                        </div>
+                <h3 class="text-white mb-3 border-bottom pb-3"> Speak With Experts</h3>
+<!--                 <form id="contact-form"> -->
+                    <!-- Contact form for right bar vertical with us -->
+                    <div class="text-white">
+                    <?php if ( $form_right = get_field( 'form_right', 'options' ) ) : ?>
+                	<?php echo do_shortcode($form_right); ?>
+                    <?php endif; ?>
                     </div>
-                    <div class="button">
-                        <a href="#" class="slider-btn">Submit<i class="fas fa-long-arrow-alt-right ms-2"></i></a>
-                    </div> -->
-                </form>
+                 
+                <!--</form>-->
+			
+					 
             </div>
         </div>
     </div>
 </div>
+
 <!-- book now -->
 <!-- Modal -->
 <div class="modal fade newmodal" id="booknowModal" tabindex="-1" aria-labelledby="booknowModalLabel" aria-hidden="true">
@@ -478,12 +337,134 @@ ini_set('smtp_port',25);?>
         </div>
     </div>
 </div>
-<a href="#" class="toTopBtn"><i class="fas fa-angle-up"></i></a>
+<!--<a href="#" class="toTopBtn"><i class="fas fa-angle-up"></i></a>-->
 
+<!--REquest a callback-->
+<!-- Modal -->
+<div class="modal fade newmodal" id="reqcallbackModal" tabindex="-1" aria-labelledby="reqcallbackModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title text-theme" id="reqcallbackModalLabel">Get in Touch with Experts for Free
+                    Consultation</h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!--............................ Book Consulatancy form................... -->
+
+
+            <!--............................ Book request a callback form................... -->
+           <?php if ( $request_callback = get_field( 'request_callback' ) ) : ?>
+        	<?php echo do_shortcode($request_callback); ?>
+           <?php endif; ?>
+            <!-- <div class="modal-body">
+                <div class="bookform">
+                    <div class="form-group">
+                        <div class="pt-0">
+                            <label class="mb-0">Name</label>
+                            <input type="text" class="form-control" placeholder="Enter Name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="pt-0">
+                            <label class="mb-0">Email</label>
+                            <input type="email" class="form-control" placeholder="Enter Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="pt-0">
+                            <label class="mb-0">Mobile</label>
+                            <input type="text" class="form-control" placeholder="Enter Mobile No.">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="pt-0">
+                            <label class="mb-0">Nearest Office</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option>Sydney</option>
+                                <option>Adeliade</option>
+                                <option>Tasmania</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="pt-0">
+                            <label class="mb-0">Services for
+                                Consultation</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option>Education Consultation</option>
+                                <option>Visa & Migration Services</option>
+                                <option>OSHC</option>
+                                <option>Tax Return</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <div class="pt-0">
+                            <label class="mb-0">Your Message Here</label>
+                            <textarea class="form-control pt-3" placeholder="Type your message"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger border-0
+                            rounded-0" data-bs-dismiss="modal">Reset</button>
+                <button type="button" class="btn btn-primary btn_purple
+                            border-0 rounded-0">Submit</button>
+            </div> -->
+        </div>
+    </div>
+</div>
+<a href="#" class="toTopBtn"><i class="fas fa-angle-up"></i></a>
+<!-- popup notification -->
 <?php wp_footer();?>
+<!--<script>-->
+<!-- This jquery is used for dropdown sign in menu header -->
+<!--jQuery('<i class="fas fa-chevron-down"></i>').insertAfter('li.dropdown');-->
+<!--</script>-->
 <script>
-jQuery('<i class="fas fa-chevron-down"></i>').insertAfter('li.dropdown');
+   jQuery(document).ready(function(){
+    $ = jQuery; 
+    $('p').each(function() {
+    var $this = $(this);
+    if($this.html().replace(/\s|&nbsp;/g, '').length == 0)
+        $this.remove();
+}); 
+
+});</script>
+<script>
+    jQuery('p:empty').remove();</script>
+<!-- jQuery('#contact-form form').addClass('w-40 m-auto pt-100 pb-100 text-white'); -->
+    <!-- script for the photo gallery closing navigation symbol -->
+    <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/lightgallery-all.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/lightgallery-all.min.js"></script> -->
+<script>
+$(document).ready(function() {
+    $('#lightgallery').lightGallery();
+});
+
 </script>
+<script>
+$('ul').each(function() {
+  if ($(this).text() === '') {
+    $(this).remove();
+  }
+});
+
+</script>
+<script>
+jQuery("form").attr("id","contact-form");</script>
+
+<script>document.addEventListener( '.wpcf7-submit', function( event ) {
+  alert( "Fire!" );
+}, false );</script>
 </body>
 
 

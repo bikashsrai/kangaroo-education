@@ -14,6 +14,7 @@
 <html <?php language_attributes(); ?>>
 
     <head>
+		<meta name="google-site-verification" content="BRqKy2FPWYuCNsjUuQC35ewZxhkNIASEM-AEjXGtSxY" />
         <meta charset="<?php bloginfo( 'charset' ); ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- <link rel="profile" href="https://gmpg.org/xfn/11"> -->
@@ -21,6 +22,10 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <meta name="generator" content="Hugo 0.84.0">
+        
+        <!-- script for the photo gallery closing navigation symbol -->
+         <link href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.0/css/lightgallery.min.css"
+            rel="stylesheet">
         <?php
         wp_enqueue_script("jquery");
         wp_head(); ?>
@@ -86,7 +91,7 @@
 						?>
                         <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"
                             class="btn-get-started bg-transparent
-                                 text-theme rounded-3  btn-sm contactbtn fw-bold text-theme enqbtn"><?php echo esc_html( $link_title ); ?><i
+                                 text-theme rounded-3  btn-sm contactbtn fw-bold text-theme enqbtn mt-0"><?php echo esc_html( $link_title ); ?><i
                                 class="flaticon-long-right-arrow"></i></a> <i
                             class="fa fa-list text-theme mobile-nav-toggle"></i>
                         <?php endif;?>

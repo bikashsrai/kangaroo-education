@@ -32,9 +32,7 @@
         <div class="countryinfo1">
             <div class="row">
 
-                <?php 
-            $enable2_section=get_field('enable_section_2_stdy');
-            if($enable2_section){?>
+              
                 <div class="col-md-8 bg-light p-3">
                     <div class="study_left">
                         <?php 
@@ -44,18 +42,16 @@
                         $heading2_stdy=get_sub_field('heading_1_stdy');
                         $des2_stdy=get_sub_field('description_1_stdy');
                         ?>
-                        <h4></h4><?php echo $heading2_stdy ;?></h4>
+                        <h4><?php echo $heading2_stdy ;?></h4>
                         <p><?php echo $des2_stdy;?></p>
                         <hr>
                         <?php endwhile;
                         endif;?>
                     </div>
                 </div>
-                <?php }?>
-
+               
                 <?php 
-            $enable3_section=get_field('enable_contact_form_stdy');
-            if($enable3_section){
+           
                 $stdy_shortcode1=get_field('contact_form_stdy');
                 $title1_cfm=get_field('first_part_title_stdy');
                 $title12_cfm=get_field('second_part_title_stdy');
@@ -68,9 +64,12 @@
                     <div class="coursedetail_right">
                         <div class="reply-area">
                             <h3 class="text-white mb-3 border-bottom pb-3">Speak With Experts</h3>
-                            <form id="contact-form" action="#">
-                                <?php echo do_shortcode($stdy_shortcode1);
-                                ?>
+<!--                             <form id="contact-form" action="#" method="post"> -->
+                                
+                              
+                                <?php if ( $contact_form_stdy = get_field( 'contact_form_stdy' ) ) : ?>
+                             	<?php echo do_shortcode($contact_form_stdy); ?>
+                                 <?php endif; ?>
                                 <!-- <div class="row">
                                     <div class="col-md-12">
                                         <label for="Name">Name</label>
@@ -112,7 +111,7 @@
                                     <a href="#" class="slider-btn">Speak Now!<i
                                             class="fas fa-long-arrow-alt-right ms-2"></i></a>
                                 </div> -->
-                            </form>
+<!--                             </form> -->
                         </div>
                         <!-- banner form  -->
                         <div class="Kef_side_banner mt-4">
@@ -157,7 +156,7 @@
                         </div>
                     </div>
                 </div>
-                <?php }?>
+          
                 <hr>
                 <?php 
                         if(have_rows('study_deatails')):
@@ -175,7 +174,8 @@
                                 alt="<?php echo esc_attr(   $img_3_stdy['alt'] ); ?>" width="100%" height="350">
                             <?php endif; ?>
                         </div>
-                        <div class="col-md-7"><?php echo $titile_3_stdy;?></h4>
+                        <div class="col-md-7">
+                             <h4 class="text-theme"><?php echo $titile_3_stdy;?></h4>
                             <p><?php echo $des_3_stdy;?></p>
                         </div>
                     </div>

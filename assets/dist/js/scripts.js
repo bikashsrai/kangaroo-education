@@ -19,3 +19,5 @@
     });
   });
 })(jQuery);
+/* Remove empty paragraphs with &nbsp; */
+

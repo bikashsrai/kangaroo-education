@@ -192,59 +192,99 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 add_action( 'wp_ajax_kangaro_filter_destination', 'kangaro_filter_destination' );
 add_action( 'wp_ajax_nopriv_kangaro_filter_destination', 'kangaro_filter_destination' );
 function kangaro_filter_destination() {
-    $id = $_POST['ID'];
+	$id = $_POST['ID'];
     // make buffer for json
-    ob_start();
-
-
-    // 
-	if($id==-1){
- $taxonomy = array(
-    'post_type'         => 'institution',
-    'posts_per_page'    => -1,
-    'post_status'       => 'publish',
-    'orderby'           => 'name',
-    'order'             => 'ASC',
-    // 'paged'             => 2,
-    
-);
+	ob_start();
+	if ( $id == -1 ) {
+		$taxonomy = array(
+			'post_type'         => 'institution',
+			'posts_per_page'    => -1,
+			'post_status'       => 'publish',
+			'orderby'           => 'name',
+			'order'             => 'ASC',
+		);
 	}else{
-		 $taxonomy = array(
-    'post_type'         => 'institution',
-    'posts_per_page'    => -1,
-    'post_status'       => 'publish',
-    'orderby'           => 'name',
-    'order'             => 'ASC',
-    // 'paged'             => 2,
-    'tax_query' => array(
-        array(
-            'taxonomy'  => 'country',
-            'field'     => 'id',
-            'terms'     => $id,
-        ),
-    ),
-);
+		$taxonomy = array(
+			'post_type'         => 'institution',
+			'posts_per_page'    => -1,
+			'post_status'       => 'publish',
+			'orderby'           => 'name',
+			'order'             => 'ASC',
+			'tax_query' => array(
+				array(
+					'taxonomy'  => 'country',
+					'field'     => 'id',
+					'terms'     => $id,
+				),
+			),
+		);
 	}
-   
-$parentTaxonomy = new WP_Query( $taxonomy);
-if ( $parentTaxonomy->have_posts() ) :
-    while ( $parentTaxonomy->have_posts() ) :
-        $parentTaxonomy->the_post();?>
+	$parentTaxonomy = new WP_Query( $taxonomy);
+	if ( $parentTaxonomy->have_posts() ) :
+		while ( $parentTaxonomy->have_posts() ) :
+			$parentTaxonomy->the_post();?>
 <div class="col-md-3 australia">
     <a href="<?php echo the_permalink();?>">
         <div class="brands_item d-flex flex-column
-                                justify-content-center"><img src="<?php the_post_thumbnail_url();?>" alt="">
+					justify-content-center"><img src="<?php the_post_thumbnail_url();?>" alt="">
             <p class="text-center"><?php the_title();?></p>
         </div>
     </a>
 </div>
 <?php endwhile;
-    wp_reset_postdata();
-    endif;
+	wp_reset_postdata();
+endif;
+// send json to ajax
+wp_send_json_success(ob_get_clean());
+wp_die();
+}
 
-    // send json to ajax
-    wp_send_json_success(ob_get_clean());
-    wp_die();
+// institution search
+add_action( 'wp_ajax_kangaro_institution_search', 'kangaro_institution_search' );
+add_action( 'wp_ajax_nopriv_kangaro_institution_search', 'kangaro_institution_search' );
+function kangaro_institution_search() {
+	$country_id = $_POST['country_id'];
+	$institution = $_POST['institution'];
+	$institutionTaxo = array(
+		'post_type'         => 'institution',
+		'posts_per_page'    => -1,
+		'post_status'       => 'publish',
+		's' 				=> $institution,
+		'tax_query' => array(
+			array(
+				'taxonomy'  => 'country',
+				'field'     => 'term_id',
+				'terms'     => $country_id,
+			),
+		),
+	);
+    // make buffer for json
+	ob_start();
+	$parentTaxonomy = new WP_Query( $institutionTaxo );
+	if ( $parentTaxonomy->have_posts() ) {
+		while ( $parentTaxonomy->have_posts() ) :
+			$parentTaxonomy->the_post();?>
+<div class="col-md-3 australia">
+    <a href="<?php echo the_permalink();?>">
+        <div class="brands_item d-flex flex-column
+					justify-content-center">
+            <img loading="lazy" src="<?php the_post_thumbnail_url();?>" alt="<?php the_title(); ?>" />
+            <p class="text-center"><?php the_title();?></p>
+        </div>
+    </a>
+</div>
+<?php
+	endwhile;
+	wp_reset_postdata();
+}
+else { ?>
+<div class="w-100 brands_item">
+    <p class="text-center">Sorry, no results found. Try with another keyword.</p>
+</div>
+<?php
+}
+wp_send_json_success(ob_get_clean());
+wp_die();
 }
 
 //.......................................... filter portion end 1............................
@@ -262,3 +302,168 @@ if ( $parentTaxonomy->have_posts() ) :
 
 
 // -----------------------------------------search portion end 2----------------------------------
+
+// location search
+add_action( 'wp_ajax_kangaro_contact_search', 'kangaro_contact_search' );
+add_action( 'wp_ajax_nopriv_kangaro_contact_search', 'kangaro_contact_search' );
+function kangaro_contact_search() {
+	$location = $_POST['loc'];
+	$pageID = $_POST['ID'];
+    // make buffer for json
+	ob_start();
+	?>
+	<section class="pt-50">
+		<div class="contact_page">
+			<div class="container">
+				<div class="home_section_title text-center">
+					<h1 class="text-uppercase font_weight300 home_title">Offices From Nepal</h1>
+					<div class="style_bar"></div>
+				</div>
+				<div class="row mt-4">
+					<?php if ( have_rows( 'officecs_from_nepal_rep', $pageID ) ) :
+						while ( have_rows( 'officecs_from_nepal_rep', $pageID ) ) :
+							the_row();
+							$country_address = get_sub_field( 'country_location', $pageID );
+							// Find the position of the first occurrence of search text inside the string
+							if ( stripos( $country_address, $location ) !== false )
+								{ ?>
+									<div class="col-md-4 mt-3" id="sydney">
+										<div class="contact1">
+											<div class="row">
+												<div class ="col-md-12">
+													<div class="inner_section_title t_left ">
+														<h3><?php echo esc_html( $country_address ); ?></h3>
+														<div class="sec_line-main d-flex">
+															<div class="sec_line sec_line-big "></div>
+														</div>
+
+													</div>
+												</div>
+											</div>
+											<?php if ( $phone_off_nepal = get_sub_field( 'phone', $pageID ) ) : ?>
+												<div class="mycontact_info  a1"><span class="icon "> <i class="fa fa-phone-volume"></i></span>
+													<h6>Phone</h6><?php echo $phone_off_nepal; ?>
+												</div>
+											<?php endif; ?>
+											<div class="line_separator "></div>
+											<?php if ( $email_off = get_sub_field( 'email', $pageID ) ) : ?>
+												<div class="mycontact_info  a1"><span class="icon "> <i class="fas fa-envelope"></i></span>
+													<h6>Email</h6><?php echo $email_off; ?>
+												</div>
+											<?php endif; ?>
+											<div class="line_separator "></div>
+											<?php if ( $location_off = get_sub_field( 'location' ) ) : ?>
+												<div class="mycontact_info  a1"><span class="icon "> <i class="fas fa-map-marker-alt"></i></span>
+													<h6>Location</h6><?php echo $location_off; ?>
+												</div>
+											<?php endif; ?>
+											<div class="line_separator "></div>
+											<?php if ( $timing_hours_off = get_sub_field( 'office_timing_hours_npl', $pageID ) ) : ?>
+												<div class="mycontact_info  a1"><span class="icon "> <i class="fas fa-user-clock"></i></span>
+													<h6>Timing</h6><?php echo $timing_hours_off; ?>
+												</div>
+											<?php endif; ?>
+											<div class="map1 pt-3">
+												<?php if ( $google_map_off = get_sub_field( 'office_google_map', $pageID ) ) : ?>
+													<iframe src="<?php echo $google_map_off; ?>" width="100%" height="350"
+														style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+													<?php endif; ?>
+												</div>
+											</div>
+										</div>
+									<?php	}
+								endwhile;
+							endif;
+							?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="pt-50">
+			<div class="contact_page">
+				<div class="container">
+					<div class="home_section_title text-center">
+						<h1 class="text-uppercase font_weight300 home_title">Global Offices</h1>
+						<div class="style_bar"></div>
+					</div>
+					<!-- next -->
+					<div class="row mt-4">
+						<?php if ( have_rows( 'office_address_rep', $pageID ) ) :
+							while ( have_rows( 'office_address_rep', $pageID ) ) :
+								the_row();
+								$country_name_lo = get_sub_field( 'country_name_lo', $pageID );
+								if ( stripos( $country_name_lo, $location ) !== false )
+								{
+									?>
+									<div class="col-md-4 mt-3" id="sydney">
+										<div class="contact1">
+											<div class="row">
+												<div class ="col-md-12">
+													<div class="inner_section_title t_left ">
+														<h3><?php echo esc_html( $country_name_lo ); ?></h3>
+														<div class="sec_line-main d-flex">
+															<div class="sec_line sec_line-big "></div>
+														</div>
+													</div>
+												</div>
+											</div> 
+											<?php if ( $phone_lo = get_sub_field( 'phone_lo', $pageID ) ) : ?>
+												<div class="mycontact_info  a1"><span class="icon "> <i class="fa fa-phone-volume"></i></span>
+													<h6>Phone</h6><?php echo $phone_lo; ?>
+												</div>
+											<?php endif; ?>
+											<div class="line_separator "></div>
+											<?php if ( $email = get_sub_field( 'email', $pageID ) ) : ?>
+												<div class="mycontact_info  a1"><span class="icon "> <i class="fas fa-envelope"></i></span>
+													<h6>Email</h6><?php echo $email; ?>
+												</div>
+											<?php endif; ?>
+											<div class="line_separator "></div>
+											<?php if ( $location_lo = get_sub_field( 'location_lo', $pageID ) ) : ?>
+												<div class="mycontact_info  a1"><span class="icon "> <i class="fas fa-map-marker-alt"></i></span>
+													<h6>Location</h6><?php echo $location_lo; ?>
+												</div>
+											<?php endif; ?>
+											<div class="line_separator "></div>
+											<?php if ( $timing_hours_lo = get_sub_field( 'timing_hours_lo', $pageID ) ) : ?>
+												<div class="mycontact_info  a1"><span class="icon "> <i class="fas fa-user-clock"></i></span>
+													<h6>Timing</h6><?php echo $timing_hours_lo; ?>
+												</div>
+											<?php endif; ?>
+											<div class="map1 pt-3">
+												<?php if ( $google_map_lo = get_sub_field( 'google_map_lo', $pageID ) ) : ?>
+													<iframe src="<?php echo $google_map_lo; ?>" width="100%" height="350"
+														style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+													<?php endif; ?>
+												</div>
+											</div>
+										</div>
+										<?php
+									}
+								endwhile;
+							endif;
+							?>
+						</div>
+					</div>
+				</div>
+			</section>
+			<?php	
+		// send json to ajax
+			wp_send_json_success(ob_get_clean());
+			wp_die();
+		}
+		
+		
+// 		code to remove auto p tag
+remove_filter( 'the_content', 'wpautop' );
+// OR
+remove_filter( 'the_excerpt', 'wpautop' );
+
+// new function for form test
+
+add_filter('wpcf7_autop_or_not', '__return_false');
+
+// test
+
+

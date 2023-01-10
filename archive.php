@@ -6,6 +6,18 @@
 <!-- Blogs -->
 <section class="pt-50">
     <div class="container">
+         <!-- 1 -->
+        <div class="inner_section_title t_left text-start">
+            <h4 class="themestek-custom-heading ">Blogs</h4>
+            <h3>Recent Blogs</h3>
+
+
+            <div class="sec_line-main  text-start d-flex">
+                <div class="sec_line sec_line-big "></div>
+            </div>
+
+        </div>
+        <!-- 1 -->
         <div class="myblog blog_wrap">
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-8 col-lg-8">
@@ -158,4 +170,3 @@ endif;?>
     </div>
 </section>
 <?php get_footer();?>
-<!-- info@safepoolsaustralia.com.au -->

@@ -72,69 +72,67 @@
             </div>
             <?php endwhile;
                     endif;?>
-
-
         </div>
-
-
     </div>
 </section>
+<!-- section 3 test table -->
+<?php if ( get_field( 'enable_section_3_test' ) ) : ?> 
 <section class="bg-light p-3 mb-5">
     <div class="container">
         <div class="bandscore">
             <div class="row ">
                 <div class="col-md-12">
                     <div class="inner_section_title t_left text-start">
-                        <h4 class="themestek-custom-heading ">TOEFL</h4>
-                        <h3>What does the score mean ?</h3>
-
-
+						<?php if ( $test_type = get_field( 'test_type' ) ) : ?>
+                        <h4 class="themestek-custom-heading "><?php echo esc_html( $test_type ); ?></h4>
+						<?php endif; ?>
+						<?php if ( $heading_3_test = get_field( 'heading_3_test' ) ) : ?>
+                        <h3><?php echo esc_html( $heading_3_test ); ?></h3>
+						<?php endif; ?>
                         <div class="sec_line-main  text-start d-flex">
                             <div class="sec_line sec_line-big "></div>
-                        </div>
-
+                       </div>
                     </div>
                 </div>
             </div>
-            <p>The full length of TOEFL iBT test if four hour long which is followed by following structure.</p>
+			<?php if ( $sub__heading_3_testt = get_field( 'sub__heading_3_testt',false ) ) : ?>
+            <p><?php echo esc_html( $sub__heading_3_testt ); ?></p>
+			<?php endif; ?>
             <table class="table table-striped">
                 <tbody>
                     <tr>
-                        <td><strong>Section</strong></td>
-                        <td><strong>Description </strong></td>
-                        <td><strong>Test Time</strong></td>
+						<?php if ( $table_heading_first = get_field( 'table_heading_first' ) ) : ?>
+                        <td><strong><?php echo ( $table_heading_first ); ?></strong></td>
+						<?php endif; ?>
+						<?php if ( $table_heading_second = get_field( 'table_heading_second' ) ) : ?>
+                        <td><strong><?php echo( $table_heading_second ); ?> </strong></td>
+						<?php endif; ?>
+						<?php if ( $table_heading_third = get_field( 'table_heading_third' ) ) : ?>
+                        <td><strong><?php echo( $table_heading_third ); ?></strong></td>
+						<?php endif; ?>
                     </tr>
+                   <?php if ( have_rows( 'table_data_rep' ) ) : ?>
+						<?php while ( have_rows( 'table_data_rep' ) ) :the_row(); ?>	
                     <tr>
-                        <td>Reading</td>
-                        <td>3–4 passages, each containing 12–14 questions</td>
-                        <td>60–80 minutes</td>
-                    </tr>
-                    <tr>
-                        <td>Listening</td>
-                        <td>6–9 passages, each containing 5–6 questions</td>
-                        <td>60–90 minutes</td>
-                    </tr>
-                    <tr>
-                        <td>Break</td>
-                        <td>-</td>
-                        <td>10 minutes</td>
-                    </tr>
-                    <tr>
-                        <td>Speaking</td>
-                        <td>6 tasks</td>
-                        <td>20 minutes</td>
-                    </tr>
-                    <tr>
-                        <td>Writing</td>
-                        <td>2 tasks</td>
-                        <td>50 minutes</td>
-                    </tr>
+							
+							<?php if ( $section_data = get_sub_field( 'section_data' ) ) : ?>
+						 <td><?php echo esc_html( $section_data ); ?></td>							
+						<?php endif; ?>
+							<?php if ( $description_data = get_sub_field( 'description_data',false ) ) : ?>
+						 <td><?php echo $description_data; ?></td>		
+						<?php endif; ?>
+							<?php if ( $time_data = get_sub_field( 'time_data' ) ) : ?>
+						 <td><?php echo esc_html( $time_data ); ?></td>			
+							<?php endif; ?>						                                                        
+                    </tr>   
+					<?php endwhile; ?>
+						<?php endif; ?>       
                 </tbody>
             </table>
-            <p>TOEFL iBT, is flexible in terms of test dates and results are available online after two weeks of test
-                date. It’s score is valid for two years from the test date.</p>
-            <p>For any assistance in TOEFL test date booking, please contact us @&nbsp;<strong>9801235173</strong> or
-                email at <a href="mailto:academics@kangarooedu.com">academics@kangarooedu.com</a></p>
+			<?php if ( $summry_of_the_test_description = get_field( 'summry_of_the_test_description',false ) ) : ?>
+				 <p><?php echo $summry_of_the_test_description; ?></p>
+				<?php endif; ?>         
         </div>
     </div>
 </section>
+<?php endif; ?>

@@ -32,7 +32,7 @@ if($enable_our_approach){
 
                     </div>
                     <div class="test_para">
-                        <p><?php echo $des1_approach;?></p>
+                        <p><?php echo($des1_approach);?></p>
                     </div>
                 </div>
 
